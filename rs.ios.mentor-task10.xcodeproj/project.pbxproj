@@ -8,22 +8,82 @@
 
 /* Begin PBXBuildFile section */
 		FA31F2B226D69DC2001BF354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F2B126D69DC2001BF354 /* AppDelegate.swift */; };
-		FA31F2B426D69DC2001BF354 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F2B326D69DC2001BF354 /* SceneDelegate.swift */; };
-		FA31F2B626D69DC2001BF354 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F2B526D69DC2001BF354 /* ContentView.swift */; };
 		FA31F2B826D69DC8001BF354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2B726D69DC8001BF354 /* Assets.xcassets */; };
-		FA31F2BB26D69DC8001BF354 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2BA26D69DC8001BF354 /* Preview Assets.xcassets */; };
 		FA31F2BE26D69DC8001BF354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2BC26D69DC8001BF354 /* LaunchScreen.storyboard */; };
+		FA31F2C926D69FA8001BF354 /* RSBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F2C826D69FA8001BF354 /* RSBarButtonItem.swift */; };
+		FA31F2CB26D6A276001BF354 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F2CA26D6A276001BF354 /* NewGameViewController.swift */; };
+		FA31F2DC26D6A88C001BF354 /* Nunito-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2CD26D6A88C001BF354 /* Nunito-ExtraBoldItalic.ttf */; };
+		FA31F2DD26D6A88C001BF354 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2CE26D6A88C001BF354 /* Nunito-ExtraBold.ttf */; };
+		FA31F2DE26D6A88C001BF354 /* Nunito-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2CF26D6A88C001BF354 /* Nunito-ExtraLightItalic.ttf */; };
+		FA31F2DF26D6A88C001BF354 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2D026D6A88C001BF354 /* Nunito-Light.ttf */; };
+		FA31F2E026D6A88C001BF354 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2D126D6A88C001BF354 /* Nunito-Regular.ttf */; };
+		FA31F2E126D6A88C001BF354 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2D226D6A88C001BF354 /* Nunito-SemiBold.ttf */; };
+		FA31F2E226D6A88C001BF354 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2D326D6A88C001BF354 /* Nunito-Bold.ttf */; };
+		FA31F2E326D6A88C001BF354 /* Nunito-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2D426D6A88C001BF354 /* Nunito-BoldItalic.ttf */; };
+		FA31F2E426D6A88C001BF354 /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2D526D6A88C001BF354 /* Nunito-Black.ttf */; };
+		FA31F2E526D6A88C001BF354 /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2D626D6A88C001BF354 /* Nunito-ExtraLight.ttf */; };
+		FA31F2E626D6A88C001BF354 /* Nunito-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2D726D6A88C001BF354 /* Nunito-SemiBoldItalic.ttf */; };
+		FA31F2E726D6A88C001BF354 /* Nunito-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2D826D6A88C001BF354 /* Nunito-BlackItalic.ttf */; };
+		FA31F2E826D6A88C001BF354 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2D926D6A88C001BF354 /* OFL.txt */; };
+		FA31F2E926D6A88C001BF354 /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2DA26D6A88C001BF354 /* Nunito-Italic.ttf */; };
+		FA31F2EA26D6A88C001BF354 /* Nunito-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA31F2DB26D6A88C001BF354 /* Nunito-LightItalic.ttf */; };
+		FA31F2EC26D6BFED001BF354 /* MKControllerNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F2EB26D6BFED001BF354 /* MKControllerNameLabel.swift */; };
+		FA31F2EE26D6E109001BF354 /* MKTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F2ED26D6E109001BF354 /* MKTableViewCell.swift */; };
+		FA31F2F226D6EB54001BF354 /* MKTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F2F126D6EB54001BF354 /* MKTableViewHeader.swift */; };
+		FA31F2FC26D7076B001BF354 /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F2FB26D7076B001BF354 /* AddPlayerViewController.swift */; };
+		FA31F2FE26D7DAAE001BF354 /* MKGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F2FD26D7DAAE001BF354 /* MKGameViewController.swift */; };
+		FA31F30026D8172D001BF354 /* MKLetterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F2FF26D8172D001BF354 /* MKLetterCollectionViewCell.swift */; };
+		FA31F30226D81C1F001BF354 /* MKButtonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F30126D81C1F001BF354 /* MKButtonsCollectionViewCell.swift */; };
+		FA31F30426D8317F001BF354 /* MKKaruselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F30326D8317F001BF354 /* MKKaruselCollectionViewCell.swift */; };
+		FA31F30626D9373F001BF354 /* MKTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F30526D9373F001BF354 /* MKTableView.swift */; };
+		FA31F30826D9740D001BF354 /* MKPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F30726D9740D001BF354 /* MKPlayer.swift */; };
+		FA31F30B26D97575001BF354 /* MKResultsControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F30A26D97575001BF354 /* MKResultsControllerViewController.swift */; };
+		FA31F30D26D976CD001BF354 /* MKHighscoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F30C26D976CD001BF354 /* MKHighscoreTableViewCell.swift */; };
+		FA31F30F26D999F2001BF354 /* RSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F30E26D999F2001BF354 /* RSColor.swift */; };
+		FA31F31126D9AB57001BF354 /* MKScoreKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F31026D9AB56001BF354 /* MKScoreKeeper.swift */; };
+		FA31F31326D9ACD2001BF354 /* MKTurnsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F31226D9ACD2001BF354 /* MKTurnsTableViewCell.swift */; };
+		FA31F31526DA6EB8001BF354 /* MKCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F31426DA6EB8001BF354 /* MKCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA31F2AE26D69DC2001BF354 /* rs.ios.mentor-task10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rs.ios.mentor-task10.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA31F2B126D69DC2001BF354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA31F2B326D69DC2001BF354 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA31F2B526D69DC2001BF354 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA31F2B726D69DC8001BF354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA31F2BA26D69DC8001BF354 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA31F2BD26D69DC8001BF354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA31F2BF26D69DC8001BF354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA31F2C826D69FA8001BF354 /* RSBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSBarButtonItem.swift; sourceTree = "<group>"; };
+		FA31F2CA26D6A276001BF354 /* NewGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
+		FA31F2CD26D6A88C001BF354 /* Nunito-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		FA31F2CE26D6A88C001BF354 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
+		FA31F2CF26D6A88C001BF354 /* Nunito-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		FA31F2D026D6A88C001BF354 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		FA31F2D126D6A88C001BF354 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		FA31F2D226D6A88C001BF354 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
+		FA31F2D326D6A88C001BF354 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		FA31F2D426D6A88C001BF354 /* Nunito-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-BoldItalic.ttf"; sourceTree = "<group>"; };
+		FA31F2D526D6A88C001BF354 /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Black.ttf"; sourceTree = "<group>"; };
+		FA31F2D626D6A88C001BF354 /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FA31F2D726D6A88C001BF354 /* Nunito-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		FA31F2D826D6A88C001BF354 /* Nunito-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-BlackItalic.ttf"; sourceTree = "<group>"; };
+		FA31F2D926D6A88C001BF354 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		FA31F2DA26D6A88C001BF354 /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
+		FA31F2DB26D6A88C001BF354 /* Nunito-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-LightItalic.ttf"; sourceTree = "<group>"; };
+		FA31F2EB26D6BFED001BF354 /* MKControllerNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKControllerNameLabel.swift; sourceTree = "<group>"; };
+		FA31F2ED26D6E109001BF354 /* MKTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKTableViewCell.swift; sourceTree = "<group>"; };
+		FA31F2F126D6EB54001BF354 /* MKTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKTableViewHeader.swift; sourceTree = "<group>"; };
+		FA31F2FB26D7076B001BF354 /* AddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
+		FA31F2FD26D7DAAE001BF354 /* MKGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKGameViewController.swift; sourceTree = "<group>"; };
+		FA31F2FF26D8172D001BF354 /* MKLetterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLetterCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA31F30126D81C1F001BF354 /* MKButtonsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKButtonsCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA31F30326D8317F001BF354 /* MKKaruselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKKaruselCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA31F30526D9373F001BF354 /* MKTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKTableView.swift; sourceTree = "<group>"; };
+		FA31F30726D9740D001BF354 /* MKPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPlayer.swift; sourceTree = "<group>"; };
+		FA31F30A26D97575001BF354 /* MKResultsControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKResultsControllerViewController.swift; sourceTree = "<group>"; };
+		FA31F30C26D976CD001BF354 /* MKHighscoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKHighscoreTableViewCell.swift; sourceTree = "<group>"; };
+		FA31F30E26D999F2001BF354 /* RSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSColor.swift; sourceTree = "<group>"; };
+		FA31F31026D9AB56001BF354 /* MKScoreKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKScoreKeeper.swift; sourceTree = "<group>"; };
+		FA31F31226D9ACD2001BF354 /* MKTurnsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKTurnsTableViewCell.swift; sourceTree = "<group>"; };
+		FA31F31426DA6EB8001BF354 /* MKCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,23 +116,85 @@
 		FA31F2B026D69DC2001BF354 /* rs.ios.mentor-task10 */ = {
 			isa = PBXGroup;
 			children = (
+				FA31F30926D9741B001BF354 /* Models */,
+				FA31F2C726D69F57001BF354 /* Helpers */,
+				FA31F2C626D69F53001BF354 /* Views */,
+				FA31F2C526D69F4A001BF354 /* Controllers  */,
 				FA31F2B126D69DC2001BF354 /* AppDelegate.swift */,
-				FA31F2B326D69DC2001BF354 /* SceneDelegate.swift */,
-				FA31F2B526D69DC2001BF354 /* ContentView.swift */,
-				FA31F2B726D69DC8001BF354 /* Assets.xcassets */,
 				FA31F2BC26D69DC8001BF354 /* LaunchScreen.storyboard */,
 				FA31F2BF26D69DC8001BF354 /* Info.plist */,
-				FA31F2B926D69DC8001BF354 /* Preview Content */,
+				FA31F2B726D69DC8001BF354 /* Assets.xcassets */,
+				FA31F2CC26D6A88C001BF354 /* Nunito */,
 			);
 			path = "rs.ios.mentor-task10";
 			sourceTree = "<group>";
 		};
-		FA31F2B926D69DC8001BF354 /* Preview Content */ = {
+		FA31F2C526D69F4A001BF354 /* Controllers  */ = {
 			isa = PBXGroup;
 			children = (
-				FA31F2BA26D69DC8001BF354 /* Preview Assets.xcassets */,
+				FA31F2CA26D6A276001BF354 /* NewGameViewController.swift */,
+				FA31F2FB26D7076B001BF354 /* AddPlayerViewController.swift */,
+				FA31F2FD26D7DAAE001BF354 /* MKGameViewController.swift */,
+				FA31F30A26D97575001BF354 /* MKResultsControllerViewController.swift */,
 			);
-			path = "Preview Content";
+			path = "Controllers ";
+			sourceTree = "<group>";
+		};
+		FA31F2C626D69F53001BF354 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA31F2EB26D6BFED001BF354 /* MKControllerNameLabel.swift */,
+				FA31F2F126D6EB54001BF354 /* MKTableViewHeader.swift */,
+				FA31F2ED26D6E109001BF354 /* MKTableViewCell.swift */,
+				FA31F2FF26D8172D001BF354 /* MKLetterCollectionViewCell.swift */,
+				FA31F30126D81C1F001BF354 /* MKButtonsCollectionViewCell.swift */,
+				FA31F30326D8317F001BF354 /* MKKaruselCollectionViewCell.swift */,
+				FA31F30526D9373F001BF354 /* MKTableView.swift */,
+				FA31F30C26D976CD001BF354 /* MKHighscoreTableViewCell.swift */,
+				FA31F31226D9ACD2001BF354 /* MKTurnsTableViewCell.swift */,
+				FA31F31426DA6EB8001BF354 /* MKCollectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA31F2C726D69F57001BF354 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FA31F2C826D69FA8001BF354 /* RSBarButtonItem.swift */,
+				FA31F30E26D999F2001BF354 /* RSColor.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FA31F2CC26D6A88C001BF354 /* Nunito */ = {
+			isa = PBXGroup;
+			children = (
+				FA31F2CD26D6A88C001BF354 /* Nunito-ExtraBoldItalic.ttf */,
+				FA31F2CE26D6A88C001BF354 /* Nunito-ExtraBold.ttf */,
+				FA31F2CF26D6A88C001BF354 /* Nunito-ExtraLightItalic.ttf */,
+				FA31F2D026D6A88C001BF354 /* Nunito-Light.ttf */,
+				FA31F2D126D6A88C001BF354 /* Nunito-Regular.ttf */,
+				FA31F2D226D6A88C001BF354 /* Nunito-SemiBold.ttf */,
+				FA31F2D326D6A88C001BF354 /* Nunito-Bold.ttf */,
+				FA31F2D426D6A88C001BF354 /* Nunito-BoldItalic.ttf */,
+				FA31F2D526D6A88C001BF354 /* Nunito-Black.ttf */,
+				FA31F2D626D6A88C001BF354 /* Nunito-ExtraLight.ttf */,
+				FA31F2D726D6A88C001BF354 /* Nunito-SemiBoldItalic.ttf */,
+				FA31F2D826D6A88C001BF354 /* Nunito-BlackItalic.ttf */,
+				FA31F2D926D6A88C001BF354 /* OFL.txt */,
+				FA31F2DA26D6A88C001BF354 /* Nunito-Italic.ttf */,
+				FA31F2DB26D6A88C001BF354 /* Nunito-LightItalic.ttf */,
+			);
+			path = Nunito;
+			sourceTree = "<group>";
+		};
+		FA31F30926D9741B001BF354 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA31F30726D9740D001BF354 /* MKPlayer.swift */,
+				FA31F31026D9AB56001BF354 /* MKScoreKeeper.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,9 +254,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA31F2E826D6A88C001BF354 /* OFL.txt in Resources */,
+				FA31F2E126D6A88C001BF354 /* Nunito-SemiBold.ttf in Resources */,
 				FA31F2BE26D69DC8001BF354 /* LaunchScreen.storyboard in Resources */,
-				FA31F2BB26D69DC8001BF354 /* Preview Assets.xcassets in Resources */,
+				FA31F2EA26D6A88C001BF354 /* Nunito-LightItalic.ttf in Resources */,
+				FA31F2DE26D6A88C001BF354 /* Nunito-ExtraLightItalic.ttf in Resources */,
+				FA31F2E526D6A88C001BF354 /* Nunito-ExtraLight.ttf in Resources */,
+				FA31F2DF26D6A88C001BF354 /* Nunito-Light.ttf in Resources */,
+				FA31F2E226D6A88C001BF354 /* Nunito-Bold.ttf in Resources */,
 				FA31F2B826D69DC8001BF354 /* Assets.xcassets in Resources */,
+				FA31F2E726D6A88C001BF354 /* Nunito-BlackItalic.ttf in Resources */,
+				FA31F2E426D6A88C001BF354 /* Nunito-Black.ttf in Resources */,
+				FA31F2E326D6A88C001BF354 /* Nunito-BoldItalic.ttf in Resources */,
+				FA31F2E626D6A88C001BF354 /* Nunito-SemiBoldItalic.ttf in Resources */,
+				FA31F2E026D6A88C001BF354 /* Nunito-Regular.ttf in Resources */,
+				FA31F2E926D6A88C001BF354 /* Nunito-Italic.ttf in Resources */,
+				FA31F2DC26D6A88C001BF354 /* Nunito-ExtraBoldItalic.ttf in Resources */,
+				FA31F2DD26D6A88C001BF354 /* Nunito-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,9 +281,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA31F2FC26D7076B001BF354 /* AddPlayerViewController.swift in Sources */,
 				FA31F2B226D69DC2001BF354 /* AppDelegate.swift in Sources */,
-				FA31F2B426D69DC2001BF354 /* SceneDelegate.swift in Sources */,
-				FA31F2B626D69DC2001BF354 /* ContentView.swift in Sources */,
+				FA31F30226D81C1F001BF354 /* MKButtonsCollectionViewCell.swift in Sources */,
+				FA31F30D26D976CD001BF354 /* MKHighscoreTableViewCell.swift in Sources */,
+				FA31F31326D9ACD2001BF354 /* MKTurnsTableViewCell.swift in Sources */,
+				FA31F30B26D97575001BF354 /* MKResultsControllerViewController.swift in Sources */,
+				FA31F30626D9373F001BF354 /* MKTableView.swift in Sources */,
+				FA31F2EC26D6BFED001BF354 /* MKControllerNameLabel.swift in Sources */,
+				FA31F30426D8317F001BF354 /* MKKaruselCollectionViewCell.swift in Sources */,
+				FA31F2F226D6EB54001BF354 /* MKTableViewHeader.swift in Sources */,
+				FA31F2EE26D6E109001BF354 /* MKTableViewCell.swift in Sources */,
+				FA31F2C926D69FA8001BF354 /* RSBarButtonItem.swift in Sources */,
+				FA31F2FE26D7DAAE001BF354 /* MKGameViewController.swift in Sources */,
+				FA31F31526DA6EB8001BF354 /* MKCollectionView.swift in Sources */,
+				FA31F30F26D999F2001BF354 /* RSColor.swift in Sources */,
+				FA31F31126D9AB57001BF354 /* MKScoreKeeper.swift in Sources */,
+				FA31F30826D9740D001BF354 /* MKPlayer.swift in Sources */,
+				FA31F2CB26D6A276001BF354 /* NewGameViewController.swift in Sources */,
+				FA31F30026D8172D001BF354 /* MKLetterCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +423,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -287,10 +439,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"rs.ios.mentor-task10/Preview Content\"";
 				DEVELOPMENT_TEAM = J5KZWD7PSW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "rs.ios.mentor-task10/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,10 +460,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"rs.ios.mentor-task10/Preview Content\"";
 				DEVELOPMENT_TEAM = J5KZWD7PSW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "rs.ios.mentor-task10/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
