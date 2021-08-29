@@ -69,6 +69,11 @@ class MKGameViewController: UIViewController {
         return collectionView
     }()
     
+    func saveScore() {
+        let storageData = try! NSKeyedArchiver.archivedData(withRootObject: scoreStorage, requiringSecureCoding: false)
+        UserDefaults.standard.set(storageData, forKey: "scoreStorage")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
@@ -324,7 +329,7 @@ class MKGameViewController: UIViewController {
     //MARK: Actions
     @objc func mainButtonTouched(sender: UITapGestureRecognizer) {
         let currentCell = self.collectionView.currentCenterCell
-        currentCell.changeScore(with: 1)
+        currentCell?.changeScore(with: 1)
         self.collectionView.reloadData()
     }
     
@@ -333,8 +338,10 @@ class MKGameViewController: UIViewController {
             if let resetScore = Int(lastScoreKeeper.score) {
                 for player in self.newGameViewController!.storage {
                     if player.name == scoreStorage.last?.name {
-                        player.score -= resetScore
+                        player.score = String(Int(player.score)! - resetScore)
+                        self.newGameViewController?.saveData()
                         scoreStorage.removeLast()
+                        self.saveScore()
                     }
                 }
                 self.collectionView.reloadData()
@@ -481,6 +488,10 @@ extension MKGameViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.collectionView = self.collectionView
             cell.configureCell(player: (self.newGameViewController?.storage[indexPath.row])!)
             
+            if indexPath.item == 0 {
+                cell.performMagic()
+            }
+            
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "buttonCell", for: indexPath) as! MKButtonsCollectionViewCell
@@ -541,12 +552,15 @@ extension MKGameViewController: UICollectionViewDelegate, UICollectionViewDataSo
 }
 
 extension MKCollectionView {
-    open var currentCenterCell: MKKaruselCollectionViewCell {
+    open var currentCenterCell: MKKaruselCollectionViewCell? {
         let visibleRect = CGRect(origin: self.contentOffset, size: self.bounds.size)
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        let visibleIndexPath = self.indexPathForItem(at: visiblePoint)
         
-        return self.cellForItem(at: visibleIndexPath!) as! MKKaruselCollectionViewCell
+        if let visibleIndexPath = self.indexPathForItem(at: visiblePoint) {
+            return self.cellForItem(at: visibleIndexPath) as? MKKaruselCollectionViewCell
+        }
+        
+        return nil
     }
     
     func scrollToNext() {
@@ -565,9 +579,11 @@ extension MKCollectionView {
             }
         }
         
-        if nextItem == self.indexPath(for: currentCenterCell) {
-            self.scrollToStart()
-            return
+        if let currentCenterCell = self.currentCenterCell {
+            if nextItem == self.indexPath(for: currentCenterCell) {
+                self.scrollToStart()
+                return
+            }
         }
         
         self.scrollToItem(at: nextItem, at: .centeredHorizontally, animated: true)

@@ -27,7 +27,12 @@ class NewGameViewController: UIViewController {
         
         return tableView
     }()
-
+    
+    func saveData() {
+        let storageData = try! NSKeyedArchiver.archivedData(withRootObject: storage, requiringSecureCoding: false)
+        UserDefaults.standard.set(storageData, forKey: "storage")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
@@ -164,10 +169,17 @@ class NewGameViewController: UIViewController {
         self.navigationController?.pushViewController(self.gameViewController!, animated: true)
     }
     
-    @objc func startNewGame() {
-        for item in storage {
-            item.score = 0
+    func reloadScore() {
+        for player in self.storage {
+            player.score = String(0)
         }
+        self.saveData()
+    }
+    
+    @objc func startNewGame() {
+        self.reloadScore()
+        self.gameViewController?.scoreStorage = [] //Why setter isn't working? and i have to call saveScore
+        self.gameViewController?.saveScore()
     }
 }
 
@@ -279,6 +291,7 @@ extension NewGameViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let button = UITableViewRowAction(style: .default, title: "Delete", handler: {_,_ in
             self.storage.remove(at: indexPath.item)
+            self.saveData()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.reloadData()
         })

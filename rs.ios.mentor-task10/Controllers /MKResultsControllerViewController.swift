@@ -120,7 +120,7 @@ class MKResultsControllerViewController: UIViewController {
             guard item.name != "prikol" else { break }
             storage.append(item)
         }
-        let highscore = Array(storage.sorted(by: {$0.score > $1.score }).prefix(3))
+        let highscore = Array(storage.sorted(by: {Int($0.score)! > Int($1.score)! }).prefix(3))
         
         return highscore
     }
@@ -172,7 +172,7 @@ extension MKResultsControllerViewController: UITableViewDelegate, UITableViewDat
             cell.delegate = self
             cell.configureCell(withText: self.highScore[indexPath.item].name,
                                place: indexPath.row+1,
-                               and: self.highScore[indexPath.item].score)
+                               and: Int(self.highScore[indexPath.item].score)!)
             
             return cell
         } else {

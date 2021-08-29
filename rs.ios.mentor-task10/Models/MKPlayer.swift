@@ -9,16 +9,16 @@ import UIKit
 
 class MKPlayer: NSObject, NSCoding {
     public var name: String
-    public var score: Int
+    public var score: String // КОСТЫЫЫЫЫЫЫЫЫЫЛЬ
     
-    init(withName name: String, and score: Int) {
+    init(withName name: String, and score: String) {
         self.name = name
         self.score = score
     }
     
     required init(coder: NSCoder) {
         self.name = coder.decodeObject(forKey: "name") as? String ?? ""
-        self.score = coder.decodeObject(forKey: "score") as? Int ?? 0
+        self.score = coder.decodeObject(forKey: "score") as? String ?? ""
     }
     
     func encode(with coder: NSCoder) {

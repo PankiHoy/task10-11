@@ -37,7 +37,7 @@ class MKKaruselCollectionViewCell: UICollectionViewCell {
         
         scoreLabel.font = UIFont(name: "Nunito-ExtraBold", size: 100)
         scoreLabel.textColor = .white
-        scoreLabel.text = "\(self.assotiatedPlayer!.score)"
+        scoreLabel.text = self.assotiatedPlayer?.score
         
         self.addSubview(scoreLabel)
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +49,9 @@ class MKKaruselCollectionViewCell: UICollectionViewCell {
     }
     
     func changeScore(with digit: Int) {
-        self.assotiatedPlayer?.score += digit
+        self.assotiatedPlayer?.score = String(Int(self.assotiatedPlayer!.score)!+digit)
+        self.delegate?.newGameViewController?.saveData()
         self.delegate?.scoreStorage.append(MKScoreKeeper(name: assotiatedPlayer!.name, scoreChange: digit > 0 ? "+\(digit)" : "\(digit)"))
+        self.delegate?.saveScore()
     }
 }

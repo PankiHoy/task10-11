@@ -69,8 +69,9 @@ class AddPlayerViewController: UIViewController {
     }
     
     @objc func addPlayer(sender: UIBarButtonItem) {
-        self.delegate?.storage.insert(MKPlayer(withName: textField.text!, and: 0), at: (self.delegate?.storage.count)!-1)
+        self.delegate?.storage.insert(MKPlayer(withName: textField.text!, and: String(0)), at: (self.delegate?.storage.count)!-1)
         self.delegate?.tableView.reloadData()
+        self.delegate?.saveData()
         
         self.navigationController?.popToRootViewController(animated: true)
     }
