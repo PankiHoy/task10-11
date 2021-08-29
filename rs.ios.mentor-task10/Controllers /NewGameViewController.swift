@@ -17,10 +17,7 @@ class NewGameViewController: UIViewController {
 
     var cancelButton = RSBarButtonItem(withText: "Cancel")
     
-    var storage = [MKPlayer(withName: "Kate", and: 0),
-                   MKPlayer(withName: "John", and: 0),
-                   MKPlayer(withName: "Battie", and: 0),
-                   MKPlayer(withName: "prikol", and: 0)]
+    var storage = UserDefaults.standard.storage
     
     lazy var tableView: MKTableView = {
         let tableView = MKTableView()
@@ -30,7 +27,7 @@ class NewGameViewController: UIViewController {
         
         return tableView
     }()
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()

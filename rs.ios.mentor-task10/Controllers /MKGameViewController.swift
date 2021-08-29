@@ -10,7 +10,7 @@ import UIKit
 class MKGameViewController: UIViewController {
     var newGameViewController: NewGameViewController?
     
-    var scoreStorage: Array<MKScoreKeeper> = []
+    var scoreStorage = UserDefaults.standard.scoreStorage
     
     private var timerCounting = false
     private var startPauseButton = UIImageView(image: UIImage(named: "Play"))

@@ -71,6 +71,7 @@ class MKButtonsCollectionViewCell: UICollectionViewCell {
     @objc func addScorePoints(sender: UITapGestureRecognizer) {
         let currentCell = collectionView?.currentCenterCell
         currentCell?.changeScore(with: digit!)
+        self.collectionView?.scrollToNext()
         self.collectionView?.reloadData()
     }
 }
