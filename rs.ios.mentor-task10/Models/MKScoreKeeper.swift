@@ -26,15 +26,3 @@ class MKScoreKeeper: NSObject, NSCoding {
         coder.encode(score, forKey: "score")
     }
 }
-
-extension UserDefaults {
-    var scoreStorage: Array<MKScoreKeeper> {
-        get {
-            guard let data = UserDefaults.standard.data(forKey: "scoreStorage") else { return [] }
-            return (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)) as? Array<MKScoreKeeper> ?? []
-        }
-        set {
-            UserDefaults.standard.set(try? NSKeyedArchiver.archivedData(withRootObject: newValue, requiringSecureCoding: false), forKey: "scoreStorage")
-        }
-    }
-}

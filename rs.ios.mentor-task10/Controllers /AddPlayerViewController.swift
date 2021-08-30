@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddPlayerViewController: UIViewController {
+class AddPlayerViewController: UIViewController, UITextFieldDelegate {
     weak var delegate: NewGameViewController?
     
     private var addButton: RSBarButtonItem?
@@ -20,6 +20,7 @@ class AddPlayerViewController: UIViewController {
                                                                             UIColor(red: 0.608, green: 0.608, blue: 0.631, alpha: 1)])
         textField.font = UIFont(name: "Nunito-ExtraBold", size: 20)
         textField.textColor = .white
+        textField.tintColor = .white
         textField.autocorrectionType = .no
 
         return textField
@@ -51,6 +52,7 @@ class AddPlayerViewController: UIViewController {
     
     func configureTextField() {
         self.view.addSubview(textField)
+        textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.addTarget(self, action: #selector(textChanged(sender:)), for: .editingChanged)
         
@@ -84,6 +86,12 @@ class AddPlayerViewController: UIViewController {
             self.addButton?.isEnabled = true
             self.addButton?.isHighlighted(false)
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.addPlayer(sender: UIBarButtonItem())
+        textField.resignFirstResponder()
+        return true
     }
     
 }

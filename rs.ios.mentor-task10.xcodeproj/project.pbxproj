@@ -43,6 +43,7 @@
 		FA31F31126D9AB57001BF354 /* MKScoreKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F31026D9AB56001BF354 /* MKScoreKeeper.swift */; };
 		FA31F31326D9ACD2001BF354 /* MKTurnsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F31226D9ACD2001BF354 /* MKTurnsTableViewCell.swift */; };
 		FA31F31526DA6EB8001BF354 /* MKCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F31426DA6EB8001BF354 /* MKCollectionView.swift */; };
+		FA6B9C1726DD879100DF1ECD /* UserDefaultsPrikoly.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B9C1626DD879100DF1ECD /* UserDefaultsPrikoly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		FA31F31026D9AB56001BF354 /* MKScoreKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKScoreKeeper.swift; sourceTree = "<group>"; };
 		FA31F31226D9ACD2001BF354 /* MKTurnsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKTurnsTableViewCell.swift; sourceTree = "<group>"; };
 		FA31F31426DA6EB8001BF354 /* MKCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCollectionView.swift; sourceTree = "<group>"; };
+		FA6B9C1626DD879100DF1ECD /* UserDefaultsPrikoly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPrikoly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			children = (
 				FA31F2C826D69FA8001BF354 /* RSBarButtonItem.swift */,
 				FA31F30E26D999F2001BF354 /* RSColor.swift */,
+				FA6B9C1626DD879100DF1ECD /* UserDefaultsPrikoly.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				FA31F30F26D999F2001BF354 /* RSColor.swift in Sources */,
 				FA31F31126D9AB57001BF354 /* MKScoreKeeper.swift in Sources */,
 				FA31F30826D9740D001BF354 /* MKPlayer.swift in Sources */,
+				FA6B9C1726DD879100DF1ECD /* UserDefaultsPrikoly.swift in Sources */,
 				FA31F2CB26D6A276001BF354 /* NewGameViewController.swift in Sources */,
 				FA31F30026D8172D001BF354 /* MKLetterCollectionViewCell.swift in Sources */,
 			);

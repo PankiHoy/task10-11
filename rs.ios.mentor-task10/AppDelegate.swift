@@ -10,14 +10,20 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var navigationController: UINavigationController?
+    
+    var rootController = NewGameViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let rootController = NewGameViewController()
         rootController.view.backgroundColor = UIColor(named: "RSBlack")
+        rootController.gameViewController = MKGameViewController()
+        rootController.gameViewController?.newGameViewController = rootController
+
+        let navigationController = UINavigationController(rootViewController: self.rootController)
+        navigationController.navigationBar.isHidden = true
         
-        self.navigationController = UINavigationController(rootViewController: rootController)
-        self.navigationController?.navigationBar.isHidden = true
+        if !UserDefaults.standard.firstTimeLaunchCheck {
+            navigationController.pushViewController(rootController.gameViewController!, animated: true)
+        }
         
         self.window = UIWindow()
         self.window?.rootViewController = navigationController
@@ -25,6 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        let collectionView = rootController.gameViewController?.collectionView
+        if let currentCenterCell = collectionView?.currentCenterCell {
+            if let indexPathForCenterItem = collectionView?.indexPath(for: currentCenterCell) {
+                UserDefaults.standard.currentCellIndexPathItem = indexPathForCenterItem.item
+            }
+        }
+    }
 }
-

@@ -18,23 +18,11 @@ class MKPlayer: NSObject, NSCoding {
     
     required init(coder: NSCoder) {
         self.name = coder.decodeObject(forKey: "name") as? String ?? ""
-        self.score = coder.decodeObject(forKey: "score") as? String ?? ""
+        self.score = coder.decodeObject(forKey: "score") as? String ?? "0"
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(name, forKey: "name")
         coder.encode(score, forKey: "score")
-    }
-}
-
-extension UserDefaults {
-    var storage: Array<MKPlayer> {
-        get {
-            guard let data = UserDefaults.standard.data(forKey: "storage") else { return [] }
-            return (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)) as? Array<MKPlayer> ?? []
-        }
-        set {
-            UserDefaults.standard.set(try? NSKeyedArchiver.archivedData(withRootObject: newValue, requiringSecureCoding: false), forKey: "storage")
-        }
     }
 }

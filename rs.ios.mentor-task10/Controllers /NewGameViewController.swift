@@ -162,9 +162,8 @@ class NewGameViewController: UIViewController {
             
             return
         }
-        self.gameViewController = MKGameViewController()
-        self.gameViewController?.newGameViewController = self
         self.isFirstTimePresenting = false
+        UserDefaults.standard.firstTimeLaunchCheck = false
         
         self.navigationController?.pushViewController(self.gameViewController!, animated: true)
     }
@@ -176,8 +175,14 @@ class NewGameViewController: UIViewController {
         self.saveData()
     }
     
+    func reloadCurrentPlayer() {
+        UserDefaults.standard.currentCellIndexPathItem = 0
+    }
+    
     @objc func startNewGame() {
+        UserDefaults.standard.firstTimeLaunchCheck = true
         self.reloadScore()
+        self.reloadCurrentPlayer()
         self.gameViewController?.scoreStorage = [] //Why setter isn't working? and i have to call saveScore
         self.gameViewController?.saveScore()
     }
@@ -292,7 +297,7 @@ extension NewGameViewController: UITableViewDelegate, UITableViewDataSource {
         let button = UITableViewRowAction(style: .default, title: "Delete", handler: {_,_ in
             self.storage.remove(at: indexPath.item)
             self.saveData()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .left)
             tableView.reloadData()
         })
         button.backgroundColor = .rsRed
@@ -302,12 +307,6 @@ extension NewGameViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension UIViewController {
-    func addContentController(content: UIViewController) {
-        self.navigationController?.present(MKResultsControllerViewController(), animated: true, completion: {
-            
-        })
-    }
-    
     func configureControllerName(name: String) {
         let controllerNameLabel = MKControllerNameLabel(withName: name)
         

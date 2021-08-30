@@ -18,12 +18,15 @@ class MKGameViewController: UIViewController {
     private var count: Int = 0
     private var timer = Timer()
     
+    private var nextArrow = UIImageView()
+    private var previousArrow = UIImageView()
+    
     private var timerLabel = UILabel()
     private var bigDiceImage: UIImageView?
     
     private var mainButton = MKButtonsCollectionViewCell()
     
-    private var collectionView: MKCollectionView = {
+    var collectionView: MKCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 20
@@ -77,6 +80,16 @@ class MKGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.collectionView.scrollToItem(at: IndexPath(item: UserDefaults.standard.currentCellIndexPathItem, section: 0), at: .centeredHorizontally, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UserDefaults.standard.currentCellIndexPathItem = self.collectionView.indexPath(for: self.collectionView.currentCenterCell!)!.item
     }
     
     func setup() {
@@ -183,7 +196,7 @@ class MKGameViewController: UIViewController {
             self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             
-            self.collectionView.heightAnchor.constraint(equalTo: self.collectionView.widthAnchor, multiplier: 1/1.4)
+            self.collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/2.7)
         ])
     }
     
@@ -345,6 +358,7 @@ class MKGameViewController: UIViewController {
                         self.saveScore()
                     }
                 }
+                self.collectionView.scrollToPrevious()
                 self.collectionView.reloadData()
             }
         }
@@ -524,7 +538,7 @@ extension MKGameViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView === self.collectionView {
-            return CGSize(width: self.collectionView.frame.width/1.65, height: self.collectionView.frame.width/1.4)
+            return CGSize(width: self.collectionView.frame.width/1.65, height: self.collectionView.frame.height)
         } else if collectionView == self.letterCollectionView {
             return CGSize(width: 20, height: 24)
         } else {
@@ -603,6 +617,13 @@ extension MKCollectionView {
         if let previousItemCell = self.cellForItem(at: IndexPath(item: currentItem!.item-1, section: 0)) {
             if let indexPathForNextCell = self.indexPath(for: previousItemCell) {
                 previousItem = indexPathForNextCell
+            }
+        }
+        
+        if let currentCenterCell = self.currentCenterCell {
+            if previousItem == self.indexPath(for: currentCenterCell) {
+                self.scrollToEnd()
+                return
             }
         }
         

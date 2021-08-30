@@ -104,7 +104,6 @@ class MKResultsControllerViewController: UIViewController {
         
     }
     
-    
     @objc func newGameButtonTouched(sender: UIButton) {
         self.delegate?.newGameViewController?.startNewGame()
         self.navigationController?.popToRootViewController(animated: true)
