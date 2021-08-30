@@ -120,7 +120,13 @@ class MKResultsControllerViewController: UIViewController {
             guard item.name != "prikol" else { break }
             storage.append(item)
         }
-        let highscore = Array(storage.sorted(by: {Int($0.score)! > Int($1.score)! }).prefix(3))
+        let highscore = Array(storage.sorted(by: {
+            if Int($0.score)! == Int($1.score)! {
+                return $0.name.compare($1.name).rawValue == 1 ? false : true
+            } else {
+                return Int($0.score)! > Int($1.score)!
+            }
+        }).prefix(3))
         
         return highscore
     }
