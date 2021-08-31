@@ -7,6 +7,8 @@
 
 import UIKit
 
+//First launch or newGame: isFirstTimePresenting = true
+
 class NewGameViewController: UIViewController {
     var gameViewController: MKGameViewController?
     var addPlayerViewController: AddPlayerViewController?
@@ -162,7 +164,8 @@ class NewGameViewController: UIViewController {
             
             return
         }
-        self.isFirstTimePresenting = false
+        
+        self.startNewGame()
         UserDefaults.standard.firstTimeLaunchCheck = false
         
         self.navigationController?.pushViewController(self.gameViewController!, animated: true)
@@ -181,6 +184,7 @@ class NewGameViewController: UIViewController {
     
     @objc func startNewGame() {
         UserDefaults.standard.firstTimeLaunchCheck = true
+        self.isFirstTimePresenting = true
         self.reloadScore()
         self.reloadCurrentPlayer()
         self.gameViewController?.scoreStorage = [] //Why setter isn't working? and i have to call saveScore

@@ -15,6 +15,8 @@ class MKLetterCollectionViewCell: UICollectionViewCell {
     var assosiatedPlayer: MKPlayer?
     
     func configureCell(player: MKPlayer) {
+        self.assosiatedPlayer = player
+        
         letterLabel.font = UIFont(name: "Nunito-ExtraBold", size: 20)
         letterLabel.text = String(player.name.first!)
         letterLabel.textAlignment = .center
@@ -31,7 +33,11 @@ class MKLetterCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func performMagic() {
-        self.letterLabel.textColor = .white
+    func performMagic(check: Bool) {
+        if check {
+            self.letterLabel.textColor = .white
+        } else {
+            self.letterLabel.textColor = .rsGray
+        }
     }
 }

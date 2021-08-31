@@ -77,6 +77,11 @@ class MKGameViewController: UIViewController {
         UserDefaults.standard.set(storageData, forKey: "scoreStorage")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
+        self.letterCollectionView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
@@ -85,6 +90,7 @@ class MKGameViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.collectionView.scrollToItem(at: IndexPath(item: UserDefaults.standard.currentCellIndexPathItem, section: 0), at: .centeredHorizontally, animated: true)
+        self.configureLetterColors()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -102,6 +108,7 @@ class MKGameViewController: UIViewController {
         self.configureKarusel()
         self.configureArrows()
         self.configureBottomShtuki()
+        self.configureLetterColors()
     }
     
     //MARK: Navigation Bar Config
@@ -257,18 +264,22 @@ class MKGameViewController: UIViewController {
     
     @objc func nextTap(sender: UITapGestureRecognizer) {
         self.collectionView.scrollToNext()
+        self.configureLetterColors()
     }
     
     @objc func previousTap(sender: UITapGestureRecognizer) {
         self.collectionView.scrollToPrevious()
+        self.configureLetterColors()
     }
     
     @objc func toStartTap(sender: UITapGestureRecognizer) {
         self.collectionView.scrollToStart()
+        self.configureLetterColors()
     }
     
     @objc func toEndTap(sender: UITapGestureRecognizer) {
         self.collectionView.scrollToEnd()
+        self.configureLetterColors()
     }
     
     //MARK: Bottom Prikoly config
@@ -337,6 +348,16 @@ class MKGameViewController: UIViewController {
             self.letterCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -80),
             self.letterCollectionView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -54)
         ])
+    }
+    
+    func configureLetterColors() {
+        for case let letterCell as MKLetterCollectionViewCell in self.letterCollectionView.visibleCells {
+            if letterCell.assosiatedPlayer == self.collectionView.currentCenterCell?.assotiatedPlayer {
+                letterCell.performMagic(check: true)
+            } else {
+                letterCell.performMagic(check: false)
+            }
+        }
     }
     
     //MARK: Actions
@@ -471,13 +492,14 @@ class MKGameViewController: UIViewController {
     }
     
     @objc func newGameButtonTouched(sender: UIBarButtonItem) {
+        self.newGameViewController?.isFirstTimePresenting = false
         self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func resultsButtonTouched(sender: UIBarButtonItem) {
         let resultsController = MKResultsControllerViewController()
         resultsController.delegate = self
-        self.newGameViewController?.isFirstTimePresenting = true
+        
         self.navigationController?.pushViewController(resultsController, animated: true)
     }
 }
@@ -502,10 +524,6 @@ extension MKGameViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.backgroundColor = .rsBlack
             cell.collectionView = self.collectionView
             cell.configureCell(player: (self.newGameViewController?.storage[indexPath.row])!)
-            
-            if indexPath.item == 0 {
-                cell.performMagic()
-            }
             
             return cell
         } else {
