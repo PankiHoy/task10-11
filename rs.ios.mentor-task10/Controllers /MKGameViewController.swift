@@ -375,6 +375,7 @@ class MKGameViewController: UIViewController {
     @objc func mainButtonTouched(sender: UITapGestureRecognizer) {
         let currentCell = self.collectionView.currentCenterCell
         currentCell?.changeScore(with: 1)
+        self.collectionView.scrollToNext()
         self.collectionView.reloadData()
     }
     
@@ -390,6 +391,7 @@ class MKGameViewController: UIViewController {
                         self.saveScore()
                     }
                 }
+                self.collectionView.scrollToPrevious()
                 self.collectionView.reloadData()
             }
         }
