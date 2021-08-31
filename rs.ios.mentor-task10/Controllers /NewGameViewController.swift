@@ -86,47 +86,58 @@ class NewGameViewController: UIViewController {
     func configureStartButton() {
         self.startGameButton = UIButton()
         startGameButton.addTarget(self, action: #selector(startGameButtonTouched(sender:)), for: .touchUpInside)
-        let startGameButtonInnerShadow = UIButton()
+//        let startGameButtonInnerShadow = UIButton()
         
         startGameButton.backgroundColor = .rsGreen
         startGameButton.clipsToBounds = false
+        startGameButton.layer.cornerRadius = 32.5
+        
+        startGameButton.layer.shadowColor = UIColor.rsDarkGreen.cgColor
+        startGameButton.layer.shadowOffset = .init(width: 0, height: 5)
+        startGameButton.layer.shadowOpacity = 1
+        startGameButton.layer.shadowRadius = 0
         startGameButton.layer.cornerRadius = 32.5
         
         let buttonTitle = UILabel()
         buttonTitle.text = "Start Game"
         buttonTitle.font = UIFont(name: "Nunito-ExtraBold", size: 24)
         buttonTitle.textColor = .white
+
+        buttonTitle.layer.shadowColor = UIColor.rsDarkGreen.cgColor
+        buttonTitle.layer.shadowOffset = .init(width: 0, height: 2)
+        buttonTitle.layer.shadowOpacity = 1
+        buttonTitle.layer.shadowRadius = 0
         
-        let titleShadow = UILabel()
-        titleShadow.text = "Start Game"
-        titleShadow.font = UIFont(name: "Nunito-ExtraBold", size: 24)
-        titleShadow.textColor = .rsDarkGreen
+//        let titleShadow = UILabel()
+//        titleShadow.text = "Start Game"
+//        titleShadow.font = UIFont(name: "Nunito-ExtraBold", size: 24)
+//        titleShadow.textColor = .rsDarkGreen
         
         startGameButton.addSubview(buttonTitle)
-        startGameButton.addSubview(titleShadow)
+//        startGameButton.addSubview(titleShadow)
         
         startGameButton.bringSubviewToFront(buttonTitle)
         
         buttonTitle.translatesAutoresizingMaskIntoConstraints = false
-        titleShadow.translatesAutoresizingMaskIntoConstraints = false
+//        titleShadow.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             buttonTitle.centerXAnchor.constraint(equalTo: startGameButton.centerXAnchor),
             buttonTitle.centerYAnchor.constraint(equalTo: startGameButton.centerYAnchor),
             
-            titleShadow.centerXAnchor.constraint(equalTo: buttonTitle.centerXAnchor),
-            titleShadow.centerYAnchor.constraint(equalTo: buttonTitle.centerYAnchor, constant: 2)
+//            titleShadow.centerXAnchor.constraint(equalTo: buttonTitle.centerXAnchor),
+//            titleShadow.centerYAnchor.constraint(equalTo: buttonTitle.centerYAnchor, constant: 2)
         ])
         
-        startGameButtonInnerShadow.backgroundColor = .rsDarkGreen
-        startGameButtonInnerShadow.clipsToBounds = false
-        startGameButtonInnerShadow.layer.cornerRadius = 32.5
+//        startGameButtonInnerShadow.backgroundColor = .rsDarkGreen
+//        startGameButtonInnerShadow.clipsToBounds = false
+//        startGameButtonInnerShadow.layer.cornerRadius = 32.5
         
         self.view.addSubview(startGameButton)
-        self.view.addSubview(startGameButtonInnerShadow)
+//        self.view.addSubview(startGameButtonInnerShadow)
         
         startGameButton.translatesAutoresizingMaskIntoConstraints = false
-        startGameButtonInnerShadow.translatesAutoresizingMaskIntoConstraints = false
+//        startGameButtonInnerShadow.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             startGameButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -65),
@@ -136,13 +147,13 @@ class NewGameViewController: UIViewController {
             startGameButton.heightAnchor.constraint(equalToConstant: 60)
         ])
         
-        NSLayoutConstraint.activate([
-            startGameButtonInnerShadow.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -60),
-            startGameButtonInnerShadow.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20),
-            startGameButtonInnerShadow.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-            
-            startGameButtonInnerShadow.heightAnchor.constraint(equalToConstant: 65)
-        ])
+//        NSLayoutConstraint.activate([
+//            startGameButtonInnerShadow.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -60),
+//            startGameButtonInnerShadow.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20),
+//            startGameButtonInnerShadow.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+//
+//            startGameButtonInnerShadow.heightAnchor.constraint(equalToConstant: 65)
+//        ])
         
         self.view.bringSubviewToFront(startGameButton)
         

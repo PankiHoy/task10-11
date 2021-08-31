@@ -12,8 +12,10 @@ class MKGameViewController: UIViewController {
     
     var scoreStorage = UserDefaults.standard.scoreStorage
     
-    //if firstTimeLaunchCheck = true -> timerCounting po defaultu = false
-    //if firstTimeLaunchCheck = false -> timerCounting nado postavit = true
+    //if when extiting timerCounting = false -> timerCounting dolzhen ostat'sya false
+    //if when exiting timerCounting = true -> timerCounting = true то есть его тоже бля надо занести в юзердефолтс, шоб он сохранялся
+    
+    //
     
     var timerCounting = false
     private var startPauseButton = UIImageView(image: UIImage(named: "Play"))

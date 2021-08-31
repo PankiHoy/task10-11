@@ -61,4 +61,14 @@ extension UserDefaults {
             UserDefaults.standard.set(try! NSKeyedArchiver.archivedData(withRootObject: newValue, requiringSecureCoding: false), forKey: "check")
         }
     }
+    
+    var timerCounting: Bool {
+        get {
+            guard let data = UserDefaults.standard.data(forKey: "timerCounting") else { return false }
+            return (try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)) as? Bool ?? false
+        }
+        set {
+            UserDefaults.standard.set(try! NSKeyedArchiver.archivedData(withRootObject: newValue, requiringSecureCoding: false), forKey: "timerCounting")
+        }
+    }
 }
