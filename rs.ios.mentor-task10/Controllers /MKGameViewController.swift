@@ -96,8 +96,8 @@ class MKGameViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.collectionView.scrollToItem(at: IndexPath(item: UserDefaults.standard.currentCellIndexPathItem, section: 0), at: .centeredHorizontally, animated: true)
         self.configureLetterColors()
+        self.collectionView.scrollToItem(at: IndexPath(item: UserDefaults.standard.currentCellIndexPathItem, section: 0), at: .centeredHorizontally, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -313,7 +313,7 @@ class MKGameViewController: UIViewController {
         mainButton.digit = 1
         mainButton.configureCell()
         mainButton.clipsToBounds = false
-        mainButton.layer.cornerRadius = self.view.frame.height/(9*2) //ПАЧИМУ НА БОЛЬШИХ ЭКРАНАХ ОНО НЕ КРУГЛИТ КНОПКУ ЕБУЧУЮ
+        mainButton.layer.cornerRadius = self.view.frame.height/9/2 //ПАЧИМУ НА БОЛЬШИХ ЭКРАНАХ ОНО НЕ КРУГЛИТ КНОПКУ ЕБУЧУЮ
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mainButtonTouched(sender:)))
         mainButton.addGestureRecognizer(tapGestureRecognizer)
@@ -375,7 +375,6 @@ class MKGameViewController: UIViewController {
     @objc func mainButtonTouched(sender: UITapGestureRecognizer) {
         let currentCell = self.collectionView.currentCenterCell
         currentCell?.changeScore(with: 1)
-        self.collectionView.scrollToNext()
         self.collectionView.reloadData()
     }
     
@@ -391,7 +390,6 @@ class MKGameViewController: UIViewController {
                         self.saveScore()
                     }
                 }
-                self.collectionView.scrollToPrevious()
                 self.collectionView.reloadData()
             }
         }
@@ -527,6 +525,10 @@ extension MKGameViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return (self.newGameViewController?.storage.count)!-1
     }
     
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        self.configureLetterColors()
+    }
+    
     //MARK: Cell config
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
@@ -578,7 +580,7 @@ extension MKGameViewController: UICollectionViewDelegate, UICollectionViewDataSo
         } else if collectionView == self.letterCollectionView {
             return CGSize(width: 20, height: 24)
         } else {
-            return CGSize(width: self.view.frame.width/6.818, height: self.view.frame.width/6.818)
+            return CGSize(width: self.view.frame.width/6.818181818181818, height: self.view.frame.width/6.818181818181818)
         }
     }
     

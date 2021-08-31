@@ -26,6 +26,7 @@ class NewGameViewController: UIViewController {
         tableView.separatorColor = UIColor(red: 0.333, green: 0.333, blue: 0.333, alpha: 1)
         tableView.backgroundColor = .rsGray
         tableView.layer.cornerRadius = 15
+        tableView.isEditing = true
         
         return tableView
     }()
@@ -165,8 +166,25 @@ class NewGameViewController: UIViewController {
     
     @objc func startGameButtonTouched(sender: UIButton) {
         guard storage.count > 1 else {
-            let alertContoller = UIAlertController(title: "Error", message: "Ты вообще ебач, игроков то добавь roflanDodik", preferredStyle: .actionSheet)
+            let alertContoller = UIAlertController(title: nil, message: "Игроков то добавь, слышь", preferredStyle: .actionSheet)
             alertContoller.addAction(UIAlertAction(title: "ладно.", style: .destructive, handler: {_ in
+                print("vsem ku")
+            }))
+            alertContoller.view.backgroundColor = .rsDarkGray
+            
+            present(alertContoller, animated: true)
+            
+            return
+        }
+        
+        var namesStorage = [String]()
+        for player in storage {
+            namesStorage.append(player.name)
+        }
+        
+        if Set(namesStorage).count != namesStorage.count {
+            let alertContoller = UIAlertController(title: nil, message: "Забаронено добавление игроков с одинаковыми именами", preferredStyle: .actionSheet)
+            alertContoller.addAction(UIAlertAction(title: "ок.", style: .destructive, handler: {_ in
                 print("vsem ku")
             }))
             alertContoller.view.backgroundColor = .rsDarkGray
