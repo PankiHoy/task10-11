@@ -13,9 +13,9 @@ class MKGameViewController: UIViewController {
     var scoreStorage = UserDefaults.standard.scoreStorage
     
     //if when extiting timerCounting = false -> timerCounting dolzhen ostat'sya false
-    //if when exiting timerCounting = true -> timerCounting = true то есть его тоже бля надо занести в юзердефолтс, шоб он сохранялся
+    //if when exiting timerCounting = true -> timerCounting = true то есть его тоже бля надо занести в юзердефолтс, шоб он сохранялся...
     
-    //
+    //какую же хуиту я написал, господь дай мне причину не переписывать заново весь этот кал
     
     var timerCounting = false
     private var startPauseButton = UIImageView(image: UIImage(named: "Play"))
@@ -67,7 +67,7 @@ class MKGameViewController: UIViewController {
     private var buttonsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 15
+        layout.minimumLineSpacing = UIScreen.main.bounds.width/25
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(MKButtonsCollectionViewCell.self, forCellWithReuseIdentifier: "buttonCell")
@@ -271,6 +271,7 @@ class MKGameViewController: UIViewController {
     
     @objc func nextTap(sender: UITapGestureRecognizer) {
         self.collectionView.scrollToNext()
+//        print(self.collectionView.currentCenterCell!.assotiatedPlayer!.name)
         self.configureLetterColors()
     }
     
@@ -312,7 +313,7 @@ class MKGameViewController: UIViewController {
         mainButton.digit = 1
         mainButton.configureCell()
         mainButton.clipsToBounds = false
-        mainButton.layer.cornerRadius = self.view.frame.height/(9*2)
+        mainButton.layer.cornerRadius = self.view.frame.height/(9*2) //ПАЧИМУ НА БОЛЬШИХ ЭКРАНАХ ОНО НЕ КРУГЛИТ КНОПКУ ЕБУЧУЮ
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mainButtonTouched(sender:)))
         mainButton.addGestureRecognizer(tapGestureRecognizer)
@@ -357,12 +358,15 @@ class MKGameViewController: UIViewController {
         ])
     }
     
+    //MARK: Letter collection coloring
     func configureLetterColors() {
         for case let letterCell as MKLetterCollectionViewCell in self.letterCollectionView.visibleCells {
-            if letterCell.assosiatedPlayer == self.collectionView.currentCenterCell?.assotiatedPlayer {
-                letterCell.performMagic(check: true)
-            } else {
-                letterCell.performMagic(check: false)
+            if let currentCell = self.collectionView.currentCenterCell {
+                if letterCell.assosiatedPlayer == currentCell.assotiatedPlayer {
+                    letterCell.performMagic(check: true)
+                } else {
+                    letterCell.performMagic(check: false)
+                }
             }
         }
     }
@@ -375,6 +379,7 @@ class MKGameViewController: UIViewController {
         self.collectionView.reloadData()
     }
     
+    //MARK: Timer
     @objc func resetLabelTouched(sender: UITapGestureRecognizer) {
         if let lastScoreKeeper = self.scoreStorage.last {
             if let resetScore = Int(lastScoreKeeper.score) {
@@ -433,6 +438,7 @@ class MKGameViewController: UIViewController {
         return string
     }
     
+    //MARK: Dice image tap
     @objc func diceImageTapped(sender: UITapGestureRecognizer) {
         for view in self.view.subviews {
             if view.isKind(of: UIImageView.self) {
@@ -499,6 +505,7 @@ class MKGameViewController: UIViewController {
         }
     }
     
+    //MARK: NAvBar touches
     @objc func newGameButtonTouched(sender: UIBarButtonItem) {
         self.newGameViewController?.isFirstTimePresenting = false
         self.navigationController?.popToRootViewController(animated: true)
@@ -520,6 +527,7 @@ extension MKGameViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return (self.newGameViewController?.storage.count)!-1
     }
     
+    //MARK: Cell config
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "karuselCell", for: indexPath) as! MKKaruselCollectionViewCell
@@ -562,13 +570,15 @@ extension MKGameViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
     }
     
+    
+    //MARK: Cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView === self.collectionView {
             return CGSize(width: self.collectionView.frame.width/1.65, height: self.collectionView.frame.height)
         } else if collectionView == self.letterCollectionView {
             return CGSize(width: 20, height: 24)
         } else {
-            return CGSize(width: collectionView.frame.width/6.818181818181818, height: collectionView.frame.width/6.818181818181818)
+            return CGSize(width: self.view.frame.width/6.818, height: self.view.frame.width/6.818)
         }
     }
     
@@ -592,6 +602,7 @@ extension MKGameViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
+//MARK: Scrolling extension
 extension MKCollectionView {
     open var currentCenterCell: MKKaruselCollectionViewCell? {
         let visibleRect = CGRect(origin: self.contentOffset, size: self.bounds.size)

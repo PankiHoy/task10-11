@@ -195,12 +195,14 @@ class NewGameViewController: UIViewController {
     
     func reloadTimer() {
         UserDefaults.standard.timerPokasatel = 0
+        UserDefaults.standard.timerCounting = false
     }
     
     @objc func startNewGame() {
         UserDefaults.standard.firstTimeLaunchCheck = true
         self.isFirstTimePresenting = true
         self.reloadScore()
+        self.reloadTimer()
         self.reloadCurrentPlayer()
         self.gameViewController?.scoreStorage = [] //Why setter isn't working? and i have to call saveScore
         self.gameViewController?.saveScore()
