@@ -26,6 +26,10 @@ class AddPlayerViewController: UIViewController, UITextFieldDelegate {
         return textField
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.textField.becomeFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
