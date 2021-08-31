@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if !UserDefaults.standard.firstTimeLaunchCheck {
             navigationController.pushViewController(rootController.gameViewController!, animated: true)
+            self.rootController.gameViewController?.startPauseButtonTapped(sender: UITapGestureRecognizer())
         }
         
         self.window = UIWindow()
@@ -39,5 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UserDefaults.standard.currentCellIndexPathItem = indexPathForCenterItem.item
             }
         }
+        
+        UserDefaults.standard.timerPokasatel = self.rootController.gameViewController!.count
     }
 }

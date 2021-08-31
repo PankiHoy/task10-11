@@ -182,6 +182,10 @@ class NewGameViewController: UIViewController {
         UserDefaults.standard.currentCellIndexPathItem = 0
     }
     
+    func reloadTimer() {
+        UserDefaults.standard.timerPokasatel = 0
+    }
+    
     @objc func startNewGame() {
         UserDefaults.standard.firstTimeLaunchCheck = true
         self.isFirstTimePresenting = true
@@ -189,6 +193,7 @@ class NewGameViewController: UIViewController {
         self.reloadCurrentPlayer()
         self.gameViewController?.scoreStorage = [] //Why setter isn't working? and i have to call saveScore
         self.gameViewController?.saveScore()
+        self.gameViewController!.resetButtonTouched(sender: UITapGestureRecognizer())
     }
 }
 

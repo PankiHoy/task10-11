@@ -12,11 +12,16 @@ class MKGameViewController: UIViewController {
     
     var scoreStorage = UserDefaults.standard.scoreStorage
     
-    private var timerCounting = false
+    //if firstTimeLaunchCheck = true -> timerCounting po defaultu = false
+    //if firstTimeLaunchCheck = false -> timerCounting nado postavit = true
+    
+    var timerCounting = false
     private var startPauseButton = UIImageView(image: UIImage(named: "Play"))
     private var resetButton = UIImageView(image: UIImage(named: "Undo"))
-    private var count: Int = 0
-    private var timer = Timer()
+    
+    var count = UserDefaults.standard.timerPokasatel
+    
+    var timer = Timer()
     
     private var nextArrow = UIImageView()
     private var previousArrow = UIImageView()
@@ -144,8 +149,8 @@ class MKGameViewController: UIViewController {
         self.timerLabel.font = UIFont(name: "Nunito-ExtraBold", size: 28)
         self.timerLabel.textColor = .white
         self.timerLabel.textAlignment = .center
-        self.timerLabel.text = "00:00"
-        
+        self.timerLabel.text = timeToString(minutes: secondsToMinutesToSeconds(seconds: UserDefaults.standard.timerPokasatel).0,
+                                            seconds: secondsToMinutesToSeconds(seconds: UserDefaults.standard.timerPokasatel).1)
         self.view.addSubview(self.timerLabel)
         self.timerLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -394,6 +399,7 @@ class MKGameViewController: UIViewController {
             timerCounting = true
             startPauseButton.image = UIImage(named: "Pause")
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsCounting(sender:)), userInfo: nil, repeats: true)
+            RunLoop.current.add(timer, forMode: .common)
         }
     }
     
@@ -606,9 +612,11 @@ extension MKCollectionView {
         }
         
         var nextItem = IndexPath()
-        if let nextItemCell = self.cellForItem(at: IndexPath(item: currentItem!.item+1, section: 0)) {
-            if let indexPathForNextCell = self.indexPath(for: nextItemCell) {
-                nextItem = indexPathForNextCell
+        if let currentItem = currentItem {
+            if let nextItemCell = self.cellForItem(at: IndexPath(item: currentItem.item+1, section: 0)) {
+                if let indexPathForNextCell = self.indexPath(for: nextItemCell) {
+                    nextItem = indexPathForNextCell
+                }
             }
         }
         
@@ -632,9 +640,11 @@ extension MKCollectionView {
         }
         
         var previousItem = IndexPath()
-        if let previousItemCell = self.cellForItem(at: IndexPath(item: currentItem!.item-1, section: 0)) {
-            if let indexPathForNextCell = self.indexPath(for: previousItemCell) {
-                previousItem = indexPathForNextCell
+        if let currentItem = currentItem {
+            if let previousItemCell = self.cellForItem(at: IndexPath(item: currentItem.item-1, section: 0)) {
+                if let indexPathForNextCell = self.indexPath(for: previousItemCell) {
+                    previousItem = indexPathForNextCell
+                }
             }
         }
         
