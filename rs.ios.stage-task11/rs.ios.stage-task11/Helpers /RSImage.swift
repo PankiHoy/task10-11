@@ -24,6 +24,14 @@ extension UIImage {
     static var rsCompleted = UIImage(named: "completed")
     
     static var rsPlaceholder = UIImage(named: "placeholder")
+    
+    static var rsActive = UIImage(named: "active")
+    static var rsRetired = UIImage(named: "retired")
+    
+    static var rsBack = UIImage(named: "back")
+    static var rsWikipedia = UIImage(named: "wikipedia")
+    
+    static var rsCloseButton = UIImage(named: "button-close")
 }
 
 extension UIImageView {

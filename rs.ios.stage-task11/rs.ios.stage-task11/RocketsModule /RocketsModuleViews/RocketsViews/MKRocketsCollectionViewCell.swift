@@ -25,10 +25,21 @@ class MKRocketsCollectionViewCell: UICollectionViewCell {
     func configureCell(withRocket rocket: MKRocket) {
         self.backgroundColor = .rsWhite
         self.layer.cornerRadius = 20
+        configureCellShadow()
         
         configureImageView(rocket: rocket)
         configureSpecs(rocket: rocket)
         configureNameLabel(rocket: rocket)
+    }
+    
+    func configureCellShadow() {
+        self.layer.shadowColor = UIColor.rsBlack.cgColor
+        self.layer.shadowRadius = 1
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        
+        let cgPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), byRoundingCorners: .allCorners, cornerRadii: CGSize(width: self.layer.cornerRadius, height: self.layer.cornerRadius)).cgPath
+        self.layer.shadowPath = cgPath
     }
     
     func configureNameLabel(rocket: MKRocket) {
@@ -58,7 +69,7 @@ class MKRocketsCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         
         DispatchQueue.global().async {
-            URLSession.shared.dataTask(with: rocket.flickrImages.first!, completionHandler: { data, _, error in
+            URLSession.shared.dataTask(with: rocket.flickrImages.last!, completionHandler: { data, _, error in
                 if let image = UIImage(data: data!) {
                     DispatchQueue.main.async { [weak self] in
                         UIView.animate(withDuration: 0.25, animations: {

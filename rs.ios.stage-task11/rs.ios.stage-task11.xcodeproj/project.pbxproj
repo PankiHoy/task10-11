@@ -45,9 +45,16 @@
 		D70DC86226EFC7C6000098AD /* MKLaunchpadsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DC86126EFC7C5000098AD /* MKLaunchpadsPresenter.swift */; };
 		D70DC86526EFC851000098AD /* MKLaunchpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DC86426EFC851000098AD /* MKLaunchpad.swift */; };
 		D70DC86726EFC9E0000098AD /* MKLaunchpadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DC86626EFC9E0000098AD /* MKLaunchpadsViewController.swift */; };
-		D70DC86926EFCABA000098AD /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DC86826EFCABA000098AD /* Presenter.swift */; };
-		D70DC86B26EFCAC9000098AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DC86A26EFCAC9000098AD /* ViewController.swift */; };
-		D70DC86D26EFCAD5000098AD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DC86C26EFCAD5000098AD /* Model.swift */; };
+		D70DC86F26EFD5A8000098AD /* MKLaunchpadsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DC86E26EFD5A8000098AD /* MKLaunchpadsCollectionViewCell.swift */; };
+		D70DC87226F0F76F000098AD /* MKRocketsDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DC87126F0F76F000098AD /* MKRocketsDetailedViewController.swift */; };
+		D70DC87426F0F980000098AD /* RSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DC87326F0F980000098AD /* RSLabel.swift */; };
+		D768B47A26F234910049A87B /* MKImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768B47926F234910049A87B /* MKImageCollectionViewCell.swift */; };
+		D768B47D26F252540049A87B /* MKImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768B47C26F252530049A87B /* MKImageViewController.swift */; };
+		D768B47F26F252930049A87B /* MKDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768B47E26F252930049A87B /* MKDismissButton.swift */; };
+		D768B48126F26DCE0049A87B /* MKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768B48026F26DCE0049A87B /* MKWebViewController.swift */; };
+		D768B48426F280C40049A87B /* MKLaunchesDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768B48326F280C40049A87B /* MKLaunchesDetailedViewController.swift */; };
+		D768B48626F28F510049A87B /* RSShadowedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768B48526F28F510049A87B /* RSShadowedView.swift */; };
+		D768B48826F399440049A87B /* RSMaterialsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768B48726F399430049A87B /* RSMaterialsLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,9 +117,16 @@
 		D70DC86126EFC7C5000098AD /* MKLaunchpadsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLaunchpadsPresenter.swift; sourceTree = "<group>"; };
 		D70DC86426EFC851000098AD /* MKLaunchpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLaunchpad.swift; sourceTree = "<group>"; };
 		D70DC86626EFC9E0000098AD /* MKLaunchpadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLaunchpadsViewController.swift; sourceTree = "<group>"; };
-		D70DC86826EFCABA000098AD /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		D70DC86A26EFCAC9000098AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D70DC86C26EFCAD5000098AD /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D70DC86E26EFD5A8000098AD /* MKLaunchpadsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLaunchpadsCollectionViewCell.swift; sourceTree = "<group>"; };
+		D70DC87126F0F76F000098AD /* MKRocketsDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRocketsDetailedViewController.swift; sourceTree = "<group>"; };
+		D70DC87326F0F980000098AD /* RSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSLabel.swift; sourceTree = "<group>"; };
+		D768B47926F234910049A87B /* MKImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		D768B47C26F252530049A87B /* MKImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKImageViewController.swift; sourceTree = "<group>"; };
+		D768B47E26F252930049A87B /* MKDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKDismissButton.swift; sourceTree = "<group>"; };
+		D768B48026F26DCE0049A87B /* MKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKWebViewController.swift; sourceTree = "<group>"; };
+		D768B48326F280C40049A87B /* MKLaunchesDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLaunchesDetailedViewController.swift; sourceTree = "<group>"; };
+		D768B48526F28F510049A87B /* RSShadowedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSShadowedView.swift; sourceTree = "<group>"; };
+		D768B48726F399430049A87B /* RSMaterialsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSMaterialsLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,10 +175,6 @@
 		D70DC7C326E92212000098AD /* rs.ios.stage-task11 */ = {
 			isa = PBXGroup;
 			children = (
-				D70DC86C26EFCAD5000098AD /* Model.swift */,
-				D70DC86826EFCABA000098AD /* Presenter.swift */,
-				D70DC86A26EFCAC9000098AD /* ViewController.swift */,
-				D70DC85D26EE9788000098AD /* DetailedModule */,
 				D70DC83B26EA4C8B000098AD /* Service */,
 				D70DC7F626E923B5000098AD /* Helpers  */,
 				D70DC83026E95654000098AD /* ModuleBuilder */,
@@ -186,6 +196,9 @@
 				D70DC7F726E923C3000098AD /* RSColors.swift */,
 				D70DC7F926E924C3000098AD /* RSFont.swift */,
 				D70DC83326E95786000098AD /* RSImage.swift */,
+				D70DC87326F0F980000098AD /* RSLabel.swift */,
+				D768B48526F28F510049A87B /* RSShadowedView.swift */,
+				D768B48726F399430049A87B /* RSMaterialsLabel.swift */,
 			);
 			path = "Helpers ";
 			sourceTree = "<group>";
@@ -247,6 +260,7 @@
 			children = (
 				D70DC84326EA60ED000098AD /* RocketsViews */,
 				D70DC84226EA60DF000098AD /* RocketsController */,
+				D70DC87026F0F737000098AD /* RocketsDetailedViewController */,
 			);
 			path = RocketsModuleViews;
 			sourceTree = "<group>";
@@ -279,6 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				D70DC84426EA60FF000098AD /* MKRocketsCollectionViewCell.swift */,
+				D768B47926F234910049A87B /* MKImageCollectionViewCell.swift */,
+				D768B47E26F252930049A87B /* MKDismissButton.swift */,
 			);
 			path = RocketsViews;
 			sourceTree = "<group>";
@@ -306,6 +322,7 @@
 			children = (
 				D70DC85426ED1D66000098AD /* LaunchesViews */,
 				D70DC85326ED1D5D000098AD /* LaunchesController */,
+				D768B48226F2809A0049A87B /* LaunchesDetailedViewController */,
 			);
 			path = LaunchesViews;
 			sourceTree = "<group>";
@@ -372,6 +389,7 @@
 		D70DC85B26EE7F39000098AD /* LaunchpadsViews */ = {
 			isa = PBXGroup;
 			children = (
+				D70DC86E26EFD5A8000098AD /* MKLaunchpadsCollectionViewCell.swift */,
 			);
 			path = LaunchpadsViews;
 			sourceTree = "<group>";
@@ -384,11 +402,22 @@
 			path = LaunchpadsController;
 			sourceTree = "<group>";
 		};
-		D70DC85D26EE9788000098AD /* DetailedModule */ = {
+		D70DC87026F0F737000098AD /* RocketsDetailedViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D70DC87126F0F76F000098AD /* MKRocketsDetailedViewController.swift */,
+				D768B47C26F252530049A87B /* MKImageViewController.swift */,
+				D768B48026F26DCE0049A87B /* MKWebViewController.swift */,
 			);
-			path = DetailedModule;
+			path = RocketsDetailedViewController;
+			sourceTree = "<group>";
+		};
+		D768B48226F2809A0049A87B /* LaunchesDetailedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D768B48326F280C40049A87B /* MKLaunchesDetailedViewController.swift */,
+			);
+			path = LaunchesDetailedViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,25 +569,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D70DC86926EFCABA000098AD /* Presenter.swift in Sources */,
-				D70DC86B26EFCAC9000098AD /* ViewController.swift in Sources */,
 				D70DC83226E95661000098AD /* MKModuleBuilder.swift in Sources */,
 				D70DC86726EFC9E0000098AD /* MKLaunchpadsViewController.swift in Sources */,
+				D768B47F26F252930049A87B /* MKDismissButton.swift in Sources */,
 				D70DC83D26EA4C97000098AD /* MKNetworkService.swift in Sources */,
+				D768B48426F280C40049A87B /* MKLaunchesDetailedViewController.swift in Sources */,
 				D70DC83A26EA4AFE000098AD /* MKRocketsPresenter.swift in Sources */,
+				D768B48826F399440049A87B /* RSMaterialsLabel.swift in Sources */,
 				D70DC83426E95786000098AD /* RSImage.swift in Sources */,
 				D70DC7C526E92213000098AD /* AppDelegate.swift in Sources */,
 				D70DC84526EA60FF000098AD /* MKRocketsCollectionViewCell.swift in Sources */,
 				D70DC85626ED1D76000098AD /* MKLaunchesCollectionViewCell.swift in Sources */,
+				D768B47A26F234910049A87B /* MKImageCollectionViewCell.swift in Sources */,
 				D70DC7F826E923C4000098AD /* RSColors.swift in Sources */,
 				D70DC86226EFC7C6000098AD /* MKLaunchpadsPresenter.swift in Sources */,
 				D70DC7FA26E924C3000098AD /* RSFont.swift in Sources */,
+				D70DC86F26EFD5A8000098AD /* MKLaunchpadsCollectionViewCell.swift in Sources */,
+				D70DC87226F0F76F000098AD /* MKRocketsDetailedViewController.swift in Sources */,
+				D768B47D26F252540049A87B /* MKImageViewController.swift in Sources */,
+				D70DC87426F0F980000098AD /* RSLabel.swift in Sources */,
+				D768B48126F26DCE0049A87B /* MKWebViewController.swift in Sources */,
 				D70DC85226ED1D12000098AD /* MKLaunchesViewController.swift in Sources */,
 				D70DC84126EA5390000098AD /* MKRocketsViewController.swift in Sources */,
-				D70DC86D26EFCAD5000098AD /* Model.swift in Sources */,
 				D70DC83F26EA4CD2000098AD /* MKRocket.swift in Sources */,
 				D70DC86526EFC851000098AD /* MKLaunchpad.swift in Sources */,
 				D70DC85026ED179B000098AD /* MKLaunch.swift in Sources */,
+				D768B48626F28F510049A87B /* RSShadowedView.swift in Sources */,
 				D70DC84E26ED16DD000098AD /* MKLaunchesPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

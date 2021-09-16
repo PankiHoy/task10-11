@@ -38,6 +38,7 @@ class MKRocketsViewController: UIViewController {
     }
     
     func configureTabBarItem() {
+        self.tabBarController?.delegate = self
         self.tabBarItem.title = "Rockets"
         self.tabBarItem.image = UIImage.rsRocket?.withRenderingMode(.alwaysOriginal)
         self.tabBarItem.selectedImage = UIImage.rsHighlightedRocket?.withRenderingMode(.alwaysOriginal)
@@ -69,8 +70,8 @@ class MKRocketsViewController: UIViewController {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 18),
-            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -18),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
         ])
     }
     
@@ -95,16 +96,17 @@ extension MKRocketsViewController: UICollectionViewDelegateFlowLayout, UICollect
 
     //MARK: - Flow Layout Methods
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.width)
+        return CGSize(width: collectionView.frame.width-36, height: collectionView.frame.width)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 30, left: 0, bottom: 30, right: 0)
+        return UIEdgeInsets(top: 30, left: 18, bottom: 30, right: 18)
     }
     
     //MARK: - Delegate Methods
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(UIViewController(), animated: true)
+        let currentCell = collectionView.cellForItem(at: indexPath) as! MKRocketsCollectionViewCell
+        self.navigationController?.pushViewController(MKRocketsDetailedViewController(withLaunch: (self.presenter?.rockets?[indexPath.row])!, andCover: currentCell.imageView.image), animated: true)
     }
 }
 

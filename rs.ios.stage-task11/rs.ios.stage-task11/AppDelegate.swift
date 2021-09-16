@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let rocketsController = MKModuleBuilder.createRocketsModule()
         let launchesController = MKModuleBuilder.createLaunchesModule()
-        let launchPadController = UIViewController()
+        let launchPadController = MKModuleBuilder.createLaunchpadsModule()
         
         tabBarController.viewControllers = [rocketsController, launchesController, launchPadController]
         
@@ -36,5 +36,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+}
+
+extension UIViewController: UITabBarControllerDelegate  {
+    public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        guard let fromView = tabBarController.selectedViewController?.view, let toView = viewController.view else {
+            return false
+        }
+
+        if fromView != toView {
+            UIView.transition(from: fromView, to: toView, duration: 0.25, options: [.transitionCrossDissolve], completion: nil)
+        }
+
+        return true
+    }
 }
 

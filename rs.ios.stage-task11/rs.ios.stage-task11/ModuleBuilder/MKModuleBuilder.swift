@@ -33,7 +33,7 @@ class MKModuleBuilder: Builder {
         return view
     }
     
-    static func createLaunchesModule() -> UIViewController {
+    static func createLaunchpadsModule() -> UIViewController {
         let view = MKLaunchpadsViewController()
         let networkService = MKNetworkService()
         let presenter = MKLaunchpadsPresenter(view: view, networkService: networkService)

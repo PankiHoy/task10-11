@@ -14,7 +14,7 @@ struct MKLaunchpad: Codable {
     let region: String
     let timeZone: String
     let latitude: Double
-    let longtitude: Double
+    let longitude: Double
     let launchAttempts: Int
     let launchSuccesses: Int
     let rockets: [String]
@@ -29,7 +29,7 @@ struct MKLaunchpad: Codable {
         case region
         case timeZone = "timezone"
         case latitude
-        case longtitude
+        case longitude
         case launchAttempts = "launch_attempts"
         case launchSuccesses = "launch_successes"
         case rockets

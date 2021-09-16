@@ -7,7 +7,11 @@
 
 import UIKit
 
-struct MKRocket: Codable, Model {
+protocol MKModel {
+    var flickrImages: [URL] { get }
+}
+
+struct MKRocket: Codable, MKModel {
     struct Height: Codable {
         let meters: Double
         let feet: Double

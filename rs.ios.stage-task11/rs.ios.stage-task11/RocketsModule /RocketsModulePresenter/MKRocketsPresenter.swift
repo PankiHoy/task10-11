@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MKRocketsViewProtocol: AnyObject {
     func success()
@@ -15,6 +16,7 @@ protocol MKRocketsViewProtocol: AnyObject {
 protocol MKRocketsPresenterProtocol: AnyObject {
     init(view: MKRocketsViewProtocol, networkService: MKNetworkServiceProtocol)
     func getRockets()
+    func getImages(ofUnit unit: MKModel) -> [UIImage]?
     var rockets: [MKRocket]? { get set }
 }
 
@@ -43,6 +45,10 @@ class MKRocketsPresenter: MKRocketsPresenterProtocol {
                 }
             }
         }
+    }
+    
+    func getImages(ofUnit unit: MKModel) -> [UIImage]? {
+        return networkService.getImages(ofUnit: unit)
     }
 }
 

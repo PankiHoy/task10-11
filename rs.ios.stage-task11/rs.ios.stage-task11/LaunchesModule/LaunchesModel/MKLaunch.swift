@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct MKLaunch: Codable, Model {
+struct MKLaunch: Codable {
     var images: [UIImage]?
     
     struct Fairings: Codable {
@@ -30,28 +30,28 @@ struct MKLaunch: Codable, Model {
             let large: URL?
         }
         struct Reddit: Codable {
-            let campaign: String?
-            let launch: String?
-            let media: String?
-            let recovery: String?
+            let campaign: URL?
+            let launch: URL?
+            let media: URL?
+            let recovery: URL?
         }
         struct Flickr: Codable {
-            let small: [String]
-            let original: [String]
+            let small: [URL]
+            let original: [URL]
         }
         let patch: Patch
         let reddit: Reddit
-        let flickr: Flickr
+        let flickrImages: Flickr
         let presskit: String?
-        let webcast: String?
+        let webcast: URL?
         let youtubeId: String?
         let article: String?
-        let wikipedia: String?
+        let wikipedia: URL?
         
         enum CodingKeys: String, CodingKey {
             case patch
             case reddit
-            case flickr
+            case flickrImages = "flickr"
             case presskit
             case webcast
             case youtubeId = "youtube_id"

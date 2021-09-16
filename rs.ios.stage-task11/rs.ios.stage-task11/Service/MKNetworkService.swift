@@ -12,7 +12,7 @@ protocol MKNetworkServiceProtocol: AnyObject {
     func getRockets(completion: @escaping (Result <[MKRocket]?, Error>) -> Void)
     func getLaunches(completion: @escaping (Result <[MKLaunch]?, Error>) -> Void)
     func getLaunchpads(completion: @escaping (Result <[MKLaunchpad]?, Error>) -> Void)
-    func getData<T:Decodable>(ofType type: T, completion: @escaping (Result<[T]?, Error>) -> Void)
+    func getImages(ofUnit unit: MKModel) -> [UIImage]?
 }
 
 class MKNetworkService: MKNetworkServiceProtocol {
@@ -77,7 +77,7 @@ class MKNetworkService: MKNetworkServiceProtocol {
     }
     
     func getData<T:Codable>(ofType type: T, completion: @escaping (Result<[T]?, Error>) -> Void) {
-        let urlString: String
+        var urlString = "https://api.spacexdata.com"
         switch type {
         case is MKRocket:
             urlString = "https://api.spacexdata.com/v4/rockets"
@@ -106,6 +106,26 @@ class MKNetworkService: MKNetworkServiceProtocol {
                 completion(.failure(error))
             }
         }).resume()
+    }
+    
+    func getImages(ofUnit unit: MKModel) -> [UIImage]? {
+        let urlStrings = unit.flickrImages
+        var images: [UIImage]?
+        
+        for url in urlStrings {
+            URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                let image = UIImage(data: data!)
+                if let image = image {
+                    images?.append(image)
+                }
+            }).resume()
+        }
+        
+        return images
     }
 }
 
