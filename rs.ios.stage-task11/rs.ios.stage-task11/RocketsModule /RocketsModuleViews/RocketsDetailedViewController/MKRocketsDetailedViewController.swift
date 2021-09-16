@@ -377,7 +377,14 @@ extension UIViewController {
         
         let descriptionLabel = UILabel()
         descriptionLabel.makeRSLabel(withColor: UIColor.rsBlack, andFont: UIFont.robotoRegular(ofSize: 14))
-        descriptionLabel.text = description
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.34
+        
+        descriptionLabel.attributedText = NSAttributedString(string: description, attributes: [
+            NSAttributedString.Key.kern: -0.41,
+            NSAttributedString.Key.paragraphStyle: paragraphStyle
+        ])
         descriptionLabel.numberOfLines = 0
         
         stack.addArrangedSubview(descriptionLabel)

@@ -10,7 +10,7 @@ import UIKit
 
 extension UIFont {
     class func robotoRegular(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: "Roboto-Regular", size: size)!
+        return UIFont(name: "Roboto-Medium", size: size)!
     }
     
     class func robotoBold(ofSize size: CGFloat) -> UIFont {
