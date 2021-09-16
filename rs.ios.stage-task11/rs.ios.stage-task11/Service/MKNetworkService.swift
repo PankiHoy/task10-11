@@ -12,10 +12,11 @@ protocol MKNetworkServiceProtocol: AnyObject {
     func getRockets(completion: @escaping (Result <[MKRocket]?, Error>) -> Void)
     func getLaunches(completion: @escaping (Result <[MKLaunch]?, Error>) -> Void)
     func getLaunchpads(completion: @escaping (Result <[MKLaunchpad]?, Error>) -> Void)
-    func getImages(ofUnit unit: MKModel) -> [UIImage]?
+    func getImage(fromUrl url: URL, completion: @escaping (UIImage) -> Void)
 }
 
 class MKNetworkService: MKNetworkServiceProtocol {
+    
     private var imageCache: NSCache<AnyObject, AnyObject>?
     
     func getRockets(completion: @escaping (Result<[MKRocket]?, Error>) -> Void) {
@@ -76,56 +77,17 @@ class MKNetworkService: MKNetworkServiceProtocol {
         }).resume()
     }
     
-    func getData<T:Codable>(ofType type: T, completion: @escaping (Result<[T]?, Error>) -> Void) {
-        var urlString = "https://api.spacexdata.com"
-        switch type {
-        case is MKRocket:
-            urlString = "https://api.spacexdata.com/v4/rockets"
-            break
-        case is MKLaunch:
-            urlString = "https://api.spacexdata.com/v5/launches"
-            break
-        case is MKLaunchpad:
-            urlString = "https://api.spacexdata.com/v4/launchpads"
-            break
-        default:
-            break
-        }
-        guard let url = URL(string: urlString) else { return }
-        
+    func getImage(fromUrl url: URL, completion: @escaping (UIImage) -> Void) {
         URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
             if let error = error {
-                completion(.failure(error))
+                print(error)
                 return
             }
             
-            do {
-                let data = try JSONDecoder().decode([T].self, from: data!)
-                completion(.success(data))
-            } catch {
-                completion(.failure(error))
+            if let image = UIImage(data: data!) {
+                completion(image)
             }
         }).resume()
-    }
-    
-    func getImages(ofUnit unit: MKModel) -> [UIImage]? {
-        let urlStrings = unit.flickrImages
-        var images: [UIImage]?
-        
-        for url in urlStrings {
-            URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
-                if let error = error {
-                    print(error)
-                    return
-                }
-                let image = UIImage(data: data!)
-                if let image = image {
-                    images?.append(image)
-                }
-            }).resume()
-        }
-        
-        return images
     }
 }
 

@@ -63,24 +63,25 @@ class MKRocketsCollectionViewCell: UICollectionViewCell {
     }
     
     func configureImageView(rocket: MKRocket) {
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.layer.cornerRadius = self.layer.cornerRadius
         imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         imageView.clipsToBounds = true
+        imageView.image = UIImage.rsPlaceholder
         
-        DispatchQueue.global().async {
-            URLSession.shared.dataTask(with: rocket.flickrImages.last!, completionHandler: { data, _, error in
-                if let image = UIImage(data: data!) {
-                    DispatchQueue.main.async { [weak self] in
-                        UIView.animate(withDuration: 0.25, animations: {
-                            self?.imageView.image = image
-                            self?.imageView.alpha = 0
-                            self?.imageView.alpha = 1
-                        })
-                    }
-                }
-            }).resume()
-        }
+//        DispatchQueue.global().async {
+//            URLSession.shared.dataTask(with: rocket.flickrImages.last!, completionHandler: { data, _, error in
+//                if let image = UIImage(data: data!) {
+//                    DispatchQueue.main.async { [weak self] in
+//                        UIView.animate(withDuration: 0.25, animations: {
+//                            self?.imageView.image = image
+//                            self?.imageView.alpha = 0
+//                            self?.imageView.alpha = 1
+//                        })
+//                    }
+//                }
+//            }).resume()
+//        }
         
         self.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false

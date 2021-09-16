@@ -13,11 +13,11 @@ class MKImageCollectionViewCell: UICollectionViewCell {
     
     var imageView: UIImageView!
     
-    func configureCell(withImage image: URL) {
-        configureImage(url: image)
+    func configureCell() {
+        configureImage()
     }
     
-    func configureImage(url: URL) {
+    func configureImage() {
         let shadowView = ShadowedView()
         shadowView.layer.cornerRadius = 10
         
@@ -33,27 +33,6 @@ class MKImageCollectionViewCell: UICollectionViewCell {
         imageView.isUserInteractionEnabled = true
 
         imageView.layer.cornerRadius = 7
-        
-        DispatchQueue.global().async {
-            URLSession.shared.dataTask(with: url) { data, _, error in
-                if let error = error {
-                    print(error)
-                    return
-                }
-                
-                if let data = data {
-                    DispatchQueue.main.async { [weak self] in
-                        if let image = UIImage(data: data) {
-                            UIView.animate(withDuration: 0.25, animations: {
-                                self?.imageView.image = image
-                                self?.imageView.alpha = 0
-                                self?.imageView.alpha = 1
-                            })
-                        }
-                    }
-                }
-            }.resume()
-        }
         
         shadowView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false

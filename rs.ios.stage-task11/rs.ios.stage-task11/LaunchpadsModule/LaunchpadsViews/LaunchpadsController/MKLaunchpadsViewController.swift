@@ -100,7 +100,8 @@ extension MKLaunchpadsViewController: UICollectionViewDelegateFlowLayout, UIColl
     
     //MARK: - Delegate Methods
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(UIViewController(), animated: true)
+        self.navigationController?.pushViewController(MKLaunchpadsDetailedViewController(withLaunchpad: (presenter?.launchpads?[indexPath.row])!),
+                                                      animated: true)
     }
 }
 

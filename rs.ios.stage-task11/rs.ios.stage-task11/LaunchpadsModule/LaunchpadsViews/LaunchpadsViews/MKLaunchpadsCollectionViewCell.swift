@@ -64,13 +64,27 @@ class MKLaunchpadsCollectionViewCell: UICollectionViewCell {
     }
     
     func configureStatusLabel() {
-        let imageView = UIImageView()
-        switch launchpad?.status {
-        case "Active":
-            imageView.image = UIImage.rsActive
-        default:
-            imageView.image = UIImage.rsRetired
+        let imageView = ShadowedView()
+        imageView.layer.cornerRadius = 15
+        
+        let statusLabel = UILabel()
+        statusLabel.makeRSLabel(withColor: UIColor.rsCyan, andFont: UIFont.robotoBold(ofSize: 17))
+        
+        if launchpad?.status == "active" {
+            statusLabel.text = "Active"
+        } else {
+            statusLabel.text = "Retired"
         }
+        
+        imageView.addSubview(statusLabel)
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            statusLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 5),
+            statusLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 10),
+            statusLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -5),
+            statusLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -10),
+        ])
         
         self.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false

@@ -53,7 +53,6 @@ class MKLaunchesCollectionViewCell: UICollectionViewCell {
     lazy var number: UILabel = {
         let label = UILabel()
         label.makeRSLabel(withColor: UIColor.rsCyan, andFont: UIFont.robotoBold(ofSize: 17))
-        label.text = "#\(launch?.flightNumber ?? 0)"
         
         return label
     }()
@@ -110,29 +109,6 @@ class MKLaunchesCollectionViewCell: UICollectionViewCell {
         
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage.rsPlaceholder
-        
-        DispatchQueue.global().async { [weak self] in
-            if let url = self?.imageURL {
-                URLSession.shared.dataTask(with: url) { data, _, error in
-                    if let error = error {
-                        print(error)
-                        return
-                    }
-                    
-                    if let data = data {
-                        if let image = UIImage(data: data) {
-                            DispatchQueue.main.async {
-                                UIView.animate(withDuration: 0.25, animations: {
-                                    self?.imageView.image = image
-                                    self?.imageView.alpha = 0
-                                    self?.imageView.alpha = 1
-                                }, completion: nil)
-                            }
-                        }
-                    }
-                }.resume()
-            }
-        }
         
         imageLabel.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false

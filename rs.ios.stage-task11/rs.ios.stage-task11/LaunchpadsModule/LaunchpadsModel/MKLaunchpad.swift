@@ -8,6 +8,10 @@
 import Foundation
 
 struct MKLaunchpad: Codable {
+    struct Images: Codable {
+        let large: [URL]
+    }
+    let images: Images
     let name: String
     let fullName: String
     let locality: String
@@ -21,8 +25,10 @@ struct MKLaunchpad: Codable {
     let launches: [String]
     let status: String
     let id: String
+    let details: String
     
     enum CodingKeys: String, CodingKey {
+        case images
         case name
         case fullName = "full_name"
         case locality = "locality"
@@ -36,5 +42,6 @@ struct MKLaunchpad: Codable {
         case launches
         case status
         case id
+        case details
     }
 }

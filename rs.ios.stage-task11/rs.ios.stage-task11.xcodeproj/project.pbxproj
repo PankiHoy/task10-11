@@ -48,6 +48,7 @@
 		D70DC86F26EFD5A8000098AD /* MKLaunchpadsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DC86E26EFD5A8000098AD /* MKLaunchpadsCollectionViewCell.swift */; };
 		D70DC87226F0F76F000098AD /* MKRocketsDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DC87126F0F76F000098AD /* MKRocketsDetailedViewController.swift */; };
 		D70DC87426F0F980000098AD /* RSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DC87326F0F980000098AD /* RSLabel.swift */; };
+		D758868C26F3EE75003E38BF /* MKLaunchpadsDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D758868B26F3EE75003E38BF /* MKLaunchpadsDetailedViewController.swift */; };
 		D768B47A26F234910049A87B /* MKImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768B47926F234910049A87B /* MKImageCollectionViewCell.swift */; };
 		D768B47D26F252540049A87B /* MKImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768B47C26F252530049A87B /* MKImageViewController.swift */; };
 		D768B47F26F252930049A87B /* MKDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768B47E26F252930049A87B /* MKDismissButton.swift */; };
@@ -120,6 +121,7 @@
 		D70DC86E26EFD5A8000098AD /* MKLaunchpadsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLaunchpadsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D70DC87126F0F76F000098AD /* MKRocketsDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRocketsDetailedViewController.swift; sourceTree = "<group>"; };
 		D70DC87326F0F980000098AD /* RSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSLabel.swift; sourceTree = "<group>"; };
+		D758868B26F3EE75003E38BF /* MKLaunchpadsDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLaunchpadsDetailedViewController.swift; sourceTree = "<group>"; };
 		D768B47926F234910049A87B /* MKImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D768B47C26F252530049A87B /* MKImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKImageViewController.swift; sourceTree = "<group>"; };
 		D768B47E26F252930049A87B /* MKDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKDismissButton.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 			children = (
 				D70DC85B26EE7F39000098AD /* LaunchpadsViews */,
 				D70DC85C26EE7F4C000098AD /* LaunchpadsController */,
+				D758868E26F3EE8B003E38BF /* LaunchpadsDetailedViewControllers */,
 			);
 			path = LaunchpadsViews;
 			sourceTree = "<group>";
@@ -410,6 +413,14 @@
 				D768B48026F26DCE0049A87B /* MKWebViewController.swift */,
 			);
 			path = RocketsDetailedViewController;
+			sourceTree = "<group>";
+		};
+		D758868E26F3EE8B003E38BF /* LaunchpadsDetailedViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D758868B26F3EE75003E38BF /* MKLaunchpadsDetailedViewController.swift */,
+			);
+			path = LaunchpadsDetailedViewControllers;
 			sourceTree = "<group>";
 		};
 		D768B48226F2809A0049A87B /* LaunchesDetailedViewController */ = {
@@ -578,6 +589,7 @@
 				D768B48826F399440049A87B /* RSMaterialsLabel.swift in Sources */,
 				D70DC83426E95786000098AD /* RSImage.swift in Sources */,
 				D70DC7C526E92213000098AD /* AppDelegate.swift in Sources */,
+				D758868C26F3EE75003E38BF /* MKLaunchpadsDetailedViewController.swift in Sources */,
 				D70DC84526EA60FF000098AD /* MKRocketsCollectionViewCell.swift in Sources */,
 				D70DC85626ED1D76000098AD /* MKLaunchesCollectionViewCell.swift in Sources */,
 				D768B47A26F234910049A87B /* MKImageCollectionViewCell.swift in Sources */,

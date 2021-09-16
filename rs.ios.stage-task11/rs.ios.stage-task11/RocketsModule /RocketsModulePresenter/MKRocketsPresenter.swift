@@ -16,8 +16,8 @@ protocol MKRocketsViewProtocol: AnyObject {
 protocol MKRocketsPresenterProtocol: AnyObject {
     init(view: MKRocketsViewProtocol, networkService: MKNetworkServiceProtocol)
     func getRockets()
-    func getImages(ofUnit unit: MKModel) -> [UIImage]?
     var rockets: [MKRocket]? { get set }
+    var networkService: MKNetworkServiceProtocol! { get set }
 }
 
 class MKRocketsPresenter: MKRocketsPresenterProtocol {
@@ -45,10 +45,6 @@ class MKRocketsPresenter: MKRocketsPresenterProtocol {
                 }
             }
         }
-    }
-    
-    func getImages(ofUnit unit: MKModel) -> [UIImage]? {
-        return networkService.getImages(ofUnit: unit)
     }
 }
 

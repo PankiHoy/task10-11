@@ -85,16 +85,13 @@ extension MKLaunchesViewController: UICollectionViewDelegateFlowLayout, UICollec
         return presenter?.launches?.count ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let cell = cell as! MKLaunchesCollectionViewCell
-        cell.imageURL = presenter?.launches?[indexPath.item].links.patch.small
-        cell.launch = presenter?.launches?[indexPath.item]
-        cell.configureCell()
-    }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MKLaunchesCollectionViewCell.identifier, for: indexPath) as! MKLaunchesCollectionViewCell
-        
+        cell.launch = presenter?.launches?[indexPath.row]
+        cell.configureCell()
+        cell.imageView.downloaded(from: (presenter?.launches?[indexPath.row].links.patch.small)!)
+        cell.number.text = "#\(presenter?.launches?[indexPath.row].flightNumber ?? 0)"
+
         return cell
     }
     

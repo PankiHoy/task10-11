@@ -89,6 +89,8 @@ extension MKRocketsViewController: UICollectionViewDelegateFlowLayout, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MKRocketsCollectionViewCell.identifier, for: indexPath) as! MKRocketsCollectionViewCell
         if let rocket = presenter?.rockets?[indexPath.item] {
             cell.configureCell(withRocket: rocket)
+            cell.imageView.downloaded(from: (presenter?.rockets?[indexPath.row].flickrImages.last)!)
+            cell.imageView.contentMode = .scaleAspectFill
         }
         
         return cell
@@ -117,5 +119,19 @@ extension MKRocketsViewController: MKRocketsViewProtocol {
     
     func failure(error: Error) {
         print(error)
+    }
+    
+    func downloadImage(forIndexPath indexpath: IndexPath) {
+        self.presenter?.networkService.getImage(fromUrl: (presenter?.rockets?[indexpath.row].flickrImages.last)!, completion: { image in
+            DispatchQueue.main.async { [weak self] in
+                if let cell = self?.collectionView.cellForItem(at: indexpath) {
+                    let cell = cell as! MKRocketsCollectionViewCell
+                    
+                    if (cell.imageView.image == nil) || cell.imageView.image == UIImage.rsPlaceholder {
+                        cell.imageView.image = image
+                    }
+                }
+            }
+        })
     }
 }

@@ -357,22 +357,10 @@ class MKLaunchesDetailedViewController: UIViewController {
             nameLabel.leadingAnchor.constraint(equalTo: stack.leadingAnchor)
         ])
         
-        let rocketCell = MKRocketsCollectionViewCell()
-        let url = URL(string: "https://api.spacexdata.com/v4/rockets/\(launch?.rocket ?? "")")
+        let rocketCell = getRocketCellFromURL(url: URL(string: "https://api.spacexdata.com/v4/rockets/\(launch?.rocket ?? "")")!)
         
-        DispatchQueue.global().async {
-            URLSession.shared.dataTask(with: url!) { data, _, error in
-                do {
-                    let rocket = try JSONDecoder().decode(MKRocket.self, from: data!)
-                    DispatchQueue.main.async {
-                        rocketCell.configureCell(withRocket: rocket)
-                    }
-                } catch {
-                    print(error)
-                    return
-                }
-            }.resume()
-        }
+//        rocketCell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showRocket(sender:))))
+//        rocketCell.isUserInteractionEnabled = true
         
         stack.addArrangedSubview(rocketCell)
         rocketCell.translatesAutoresizingMaskIntoConstraints = false
@@ -433,11 +421,55 @@ class MKLaunchesDetailedViewController: UIViewController {
         return stack
     }
     
+    @objc func showRocket(sender: AnyObject) {
+        let rocket = getRocket(url: URL(string: "https://api.spacexdata.com/v4/rockets/\(launch?.rocket ?? "")")!)
+        let cover = try! UIImage(data: Data(contentsOf: rocket.flickrImages.last!))
+        self.navigationController?.pushViewController(MKRocketsDetailedViewController(withLaunch: rocket, andCover: cover), animated: true)
+    }
+    
     @objc func accessMaterial(sender: UITapGestureRecognizer) {
         let materialView = sender.view as! ShadowedView
         
         let webC = MKWebViewController(withURL: materialView.material!)
         self.navigationController?.present(webC, animated: true, completion: nil)
+    }
+    
+    func getRocketCellFromURL(url: URL) -> MKRocketsCollectionViewCell {
+        let rocketCell = MKRocketsCollectionViewCell()
+        
+        DispatchQueue.global().async {
+            URLSession.shared.dataTask(with: url) { data, _, error in
+                do {
+                    let rocket = try JSONDecoder().decode(MKRocket.self, from: data!)
+                    DispatchQueue.main.async {
+                        rocketCell.configureCell(withRocket: rocket)
+                        rocketCell.imageView.downloaded(from: rocket.flickrImages.last!, contentMode: .scaleAspectFill)
+                    }
+                } catch {
+                    print(error)
+                    return
+                }
+            }.resume()
+        }
+        
+        return rocketCell
+    }
+    
+    //TODO: - this thing
+    func getRocket(url: URL) -> MKRocket {
+        var raketa: MKRocket?
+        
+            URLSession.shared.dataTask(with: url) { data, _, error in
+                do {
+                    let rocket = try JSONDecoder().decode(MKRocket.self, from: data!)
+                    raketa = rocket
+                } catch {
+                    print(error)
+                    return
+                }
+            }.resume()
+        
+        return raketa!
     }
 }
 
@@ -449,31 +481,13 @@ extension MKLaunchesDetailedViewController: UICollectionViewDelegateFlowLayout, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MKImageCollectionViewCell.identifier, for: indexPath) as! MKImageCollectionViewCell
         cell.delegate = self
+        cell.configureCell()
+        cell.imageView.downloaded(from: (self.launch?.links.flickrImages.original[indexPath.row])!, contentMode: .scaleAspectFill)
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let cell = cell as! MKImageCollectionViewCell
-        DispatchQueue.main.async { [weak self] in
-            cell.configureCell(withImage: (self?.launch!.links.flickrImages.original[indexPath.row])!)
-        }
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 145, height: 196)
-    }
-}
-
-protocol StructExt {
-    func allPropertiesAreNotNull() throws -> Bool
-}
-
-extension StructExt {
-    func allPropertiesAreNotNull() throws -> Bool {
-
-        let mirror = Mirror(reflecting: self)
-
-        return !mirror.children.contains(where: { $0.value as Any? == nil})
     }
 }

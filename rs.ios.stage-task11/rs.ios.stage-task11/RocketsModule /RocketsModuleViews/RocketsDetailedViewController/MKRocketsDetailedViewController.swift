@@ -340,13 +340,10 @@ extension MKRocketsDetailedViewController: UICollectionViewDelegateFlowLayout, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MKImageCollectionViewCell.identifier, for: indexPath) as! MKImageCollectionViewCell
         cell.delegate = self
+        cell.configureCell()
+        cell.imageView.downloaded(from: (rocket?.flickrImages[indexPath.row])!, contentMode: .scaleAspectFill)
         
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let cell = cell as! MKImageCollectionViewCell
-        cell.configureCell(withImage: rocket!.flickrImages[indexPath.item])
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
